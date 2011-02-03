@@ -52,20 +52,33 @@ DD_DD_ ... .CC__
 _DDD___    .C___
 
 Best so far: 43 (manual improvement)
-Aa..bB_BBBBBBcCC
-A.gG.BBBIII_BBBC
-A..G.d.II.II..BC
-A.AG.D..i.I.BBBC
-A.AG.D.e..II.EEC
-AAAGDD.EE.EII.EC
-__AGDfFFEEE..EEC
-__AGD__F_E_EEE_C
-AAAGDDDF_EEE_CCC
-A.hGH.DFFFF__C__
-A.HHH.D...F__C__
-A.H.H.D.FFFFFCCC
-AA.A.DD..J_.F..C
-DAAADDJ.JJJ..CCC
-DD_DD_J...J.CC__
-_DDD__JJJJJ.C___
+Aa..bB_BBBBB_cC_
+A.gG.BBBIIIBBBCC
+A..G.B.II.IB..C_
+A.AG.B..i.I.CCCC
+A.AG.H.e..II.EEC
+AAAGHH.EE.EII.EC
+_A_GGHFFEEE..EEC
+_A_GHH_F__EEEE_C
+AAGGHDDF_EE__EEC
+A.hGH.DFFFFF_KCC
+A.HHH.D...F_KK__
+A.H.H.D.FFFFFKKK
+AA.A.DD..JF.F..K
+DAAADDJ.JJJ..KKK
+DD_DD_J...J.KK__
+_DDD__JJJJJ.K___
 
+-----
+Desired:
+# 0 original origin (0, 0)
+# 1 original origin (0, 4)
+# 2 original origin (0, 12)
+# 3 original origin (8, 0)
+# 4 original origin (4, 7)
+# 5 original origin (6, 6)
+# 6 original origin (1, 2)
+# 7 original origin (4, 2)
+# 8 original origin (1, 8)
+# 9 original origin (12, 6)
+# 10 original origin (9, 12)
