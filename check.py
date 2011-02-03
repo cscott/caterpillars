@@ -22,12 +22,12 @@ _A_GGHFFEEE..EEC
 _A_GHH_F__EEEE_C
 AAGGHDDF_EE__EEC
 A.hGH.DFFFFF_KCC
-A.HHH.D...F_KK__
+A.HHH.D...F_KK_K
 A.H.H.D.FFFFFKKK
 AA.A.DD..JF.F..K
 DAAADDJ.JJJ..KKK
-DD_DD_J...J.KK__
-_DDD__JJJJJ.K___
+DD_DD_J...J.KK_K
+_DDDJJJJJJJ.K__K
 """.strip()
 
 ASSEMBLED2="""
@@ -49,8 +49,8 @@ JJJJJ.J...J.II..
 J.J...JJJJJ.I...
 """.strip()
 
-ASSEMBLED=ASSEMBLED2
-OUTPUT_BASENAME='output2'
+ASSEMBLED=ASSEMBLED1
+OUTPUT_BASENAME='output1'
 
 class Point:
     def __init__(self, row, col):
