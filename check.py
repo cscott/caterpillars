@@ -11,7 +11,7 @@ NO_MIRROR=True
 NO_ROTATION=False
 UPDATE_PIECE=9
 
-ASSEMBLED="""
+ASSEMBLED1="""
 Aa..bB_BBBBB_cC_
 A.gG.BBBIIIBBBCC
 A..G.B.II.IB..C_
@@ -29,6 +29,28 @@ DAAADDJ.JJJ..KKK
 DD_DD_J...J.KK__
 _DDD__JJJJJ.K___
 """.strip()
+
+ASSEMBLED2="""
+AA..BB.BBBBB.CC.
+A.DD.BBBEEEBBBC.
+A..D.B.EE.EB..C.
+A.DD.B..E.E.CCCC
+A.AD.B.F..EE.GGC
+AAADHH.FG.GEE.GC
+.A.DDHFFGGG..GGC
+.A.D.H.F..GGGGCC
+AADDHHHF...G.IIC
+A.HDH.HFFFFGFFI.
+A.HHH.H...FGGFI.
+A.H.H.H.FFFFFFII
+AA.A.JH..JF.F..I
+.AAAJJJ.JJJ..III
+JJJJJ.J...J.II..
+J.J...JJJJJ.I...
+""".strip()
+
+ASSEMBLED=ASSEMBLED2
+OUTPUT_BASENAME='output2'
 
 class Point:
     def __init__(self, row, col):
@@ -182,7 +204,7 @@ def place_one(img, pieces, result):
         print "Found one!"
         print ', '.join(str(r) for r in result)
         print img
-        output_png("output-%02d.png" % TOTAL_FOUND, img)
+        output_png("%s-%02d.png" % (OUTPUT_BASENAME, TOTAL_FOUND), img)
         TOTAL_FOUND += 1
         return 1 # success
     num_results = 0
