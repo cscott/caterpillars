@@ -1,0 +1,71 @@
+Best so far: 36 (but blocked)
+0   1111 111 111
+0 22   1113111 1
+0  2      3   11
+0 22      3 1114
+0 2    2  3   44
+0 22   22 3   45
+0002222 2 3   45
+6 00  222 377445
+6  0    3337 455
+6  0  333 77445 
+6  00 3   7 4 55
+6   0 3  77 4  5
+68 3  3  78 4  5
+6883333 778  955
+6688888   8 995 
+ 6666688888 9 55
+
+Best so far: 54 (no branching)
+00  111111222222
+0 33     11    2
+0  3      1    2
+0 33      1    2
+0 34      11  22
+003444    555 2 
+6033 44   5   22
+60 3  4   5    2
+6003  45 55  222
+6 00  4555  22  
+6     4    22   
+6     4   227777
+66    4   2 7  7
+ 66   4      777
+  6   4         
+  66  44        
+Best so far: 43 (no branching)
+Aa..bB_BBBBBBcCC
+A.  .BBB  __BBBC
+A.. .d.  .  ..BC
+A.  .D.. . .BBBC
+A.  .D.e..  .EEC
+AAA DD.EE.   .EC
+__A_DfFFEE ..EEC
+__A_D__F_E_EEE_C
+AAA_DDDF_EEE_CCC
+A.   .DFFFF__C__
+A.   .D...F__C__
+A. . .D.  FFFCCC
+AA.A.DD.. _.F..C
+DAAADD .   ..CCC
+DD_DD_ ... .CC__
+_DDD___    .C___
+
+Best so far: 43 (manual improvement)
+Aa..bB_BBBBBBcCC
+A.gG.BBBIII_BBBC
+A..G.d.II.II..BC
+A.AG.D..i.I.BBBC
+A.AG.D.e..II.EEC
+AAAGDD.EE.EII.EC
+__AGDfFFEEE..EEC
+__AGD__F_E_EEE_C
+AAAGDDDF_EEE_CCC
+A.hGH.DFFFF__C__
+A.HHH.D...F__C__
+A.H.H.D.FFFFFCCC
+AA.A.DD..J_.F..C
+DAAADDJ.JJJ..CCC
+DD_DD_J...J.CC__
+_DDD__JJJJJ.C___
+

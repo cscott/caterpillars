@@ -1,0 +1,11 @@
+http://www.silcom.com/~tomjolly/puzzles.htm
+like Entanglement on the bottom.  Automated search for such puzzles?
+That one is 16x16 pixels with 8 pieces.
+Maybe make voids form a letter or word?
+Constraint that pieces must all be "thin" (ie, one pixel wide)
+Constrain pixels on/off to form letters, and then form letters by
+tracing.
+Recursive/backtracking.  Decide whether next pixel is on/off (search
+off first, or flip coin to get desired % void) and then decide whether
+to turn nesw.  Forbid self-intersection (should be easy) and moving
+adjacent to pixel already in piece (last piece excluded)
