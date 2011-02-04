@@ -9,7 +9,7 @@ random.seed(42)
 
 NO_MIRROR=True
 NO_ROTATION=False
-UPDATE_PIECE=9
+UPDATE_PIECE=8
 
 ASSEMBLED1="""
 Aa..bB_BBBBB_cC_
@@ -49,8 +49,8 @@ JJJJJ.J...J.II..
 J.J...JJJJJ.I...
 """.strip()
 
-ASSEMBLED=ASSEMBLED1
-OUTPUT_BASENAME='output1'
+ASSEMBLED=ASSEMBLED2
+OUTPUT_BASENAME='output3'
 
 class Point:
     def __init__(self, row, col):
@@ -75,33 +75,46 @@ class Point:
         return "Point"+str(self)
 
 class Piece:
-    def __init__(self, id):
+    def __init__(self, id, mirrored=None):
         self.id = id
         self.size = Point(0,0)
         self.origin = None
         self.rows=[]
+        self._mirrored=mirrored
+        self._rotated=None
+        self._points=None
     def __str__(self):
         pch = chr(ord('A')+self.id)
         x = '\n'.join(''.join((pch if c else ' ') for c in r)
                       for r in self.rows)
         return x
     def points(self):
-        for r in xrange(self.size.row):
-            for c in xrange(self.size.col):
-                if self.rows[r][c]:
-                    yield Point(r, c)
+        if self._points is None:
+            def _mk_points():
+                for r in xrange(self.size.row):
+                    for c in xrange(self.size.col):
+                        if self.rows[r][c]:
+                            yield Point(r, c)
+            self._points = list(_mk_points())
+        return self._points
     def mirror(self):
-        p = Piece(self.id)
-        for pt in self.points():
-            p.add(pt.mirror() + self.size)
-        return p
+        if self._mirrored is None:
+            p = Piece(self.id, mirrored=self)
+            for pt in self.points():
+                p.add(pt.mirror() + self.size)
+            self._mirrored = p
+        return self._mirrored
     def rotate(self, rotation):
-        big = max(self.size.row, self.size.col)
-        offset = Point(big, big)
-        p = Piece(self.id)
-        for pt in self.points():
-            p.add(pt.rotate(rotation) + offset)
-        return p
+        if rotation == 0: return self
+        assert rotation > 0
+        if self._rotated is None:
+            big = max(self.size.row, self.size.col)
+            offset = Point(big, big)
+            p = Piece(self.id)
+            for pt in self.points():
+                p.add(pt.rotate(1) + offset)
+            self._rotated = p
+        return self._rotated.rotate(rotation-1)
     
     def add(self, pt):
         assert pt.row >= 0 and pt.col >= 0
@@ -137,9 +150,11 @@ class Position:
     def __init__(self, piece, origin):
         self.piece = piece
         self.origin = origin
-    def points(self):
+    def _points(self):
         for pt in self.piece.points():
             yield pt + self.origin
+    def points(self):
+        return list(self._points())
     def __str__(self):
         return "Piece %d at %s" % (self.piece.id, str(self.origin))
 
@@ -213,7 +228,7 @@ def place_one(img, pieces, result):
         #if piece.id==1 and place.origin.col < 4: continue # XXX TESTING
         if len(pieces) >= UPDATE_PIECE:
             print "Attempting to place", place
-        with img.setpts(list(place.points()), place.piece.id) as success:
+        with img.setpts(place.points(), place.piece.id) as success:
             if success:
                 num_results += place_one(img, pieces[1:], result+[place])
     return num_results
@@ -229,9 +244,9 @@ def gen_placements(piece, height, width):
                     if (c+mp.size.col) > width: continue
                     yield Position(mp, Point(r,c))
             if NO_MIRROR or piece.id==0: break
-            if mirror!=1: mp = mp.mirror()
+            mp = mp.mirror()
         if NO_ROTATION or piece.id==0: break
-        if rotation!=3: rp = rp.rotate(1)
+        rp = rp.rotate(1)
 
 def solve(height, width, pieces):
     print_pieces(pieces)
@@ -244,6 +259,8 @@ def print_pieces(pieces):
     for p in pieces:
         print '#',i, "original origin", p.origin
         print str(p)
+        #print "-"
+        #print str(p.rotate(1))
         i+=1
 
 def colors():
@@ -261,7 +278,7 @@ def assemble_img(img, pieces, func):
     else:
         p, pieces = pieces[0], pieces[1:]
         place = Position(p, p.origin)
-        with img.setpts(list(place.points()), place.piece.id) as x:
+        with img.setpts(place.points(), place.piece.id) as x:
             assert x
             assemble_img(img, pieces, func)
 
@@ -287,5 +304,12 @@ def do_output_png(filename, height, width, pieces):
     img = Image(height, width)
     assemble_img(img, pieces, lambda img: output_png(filename, img))
 
+def show_pieces(height, width, pieces):
+    # rotate some of them so that "L hook" is consistent.
+    for n,r in [(0,3),(1,2),(2,1),(3,1),(6,1),(7,1),(8,1)]:
+        pieces[n] = pieces[n].rotate(r)
+    print_pieces(pieces)
+
 solve(*mkpieces())
 #do_output_png('output.png', *mkpieces())
+#show_pieces(*mkpieces())
