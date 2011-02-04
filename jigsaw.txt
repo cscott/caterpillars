@@ -9,3 +9,133 @@ Recursive/backtracking.  Decide whether next pixel is on/off (search
 off first, or flip coin to get desired % void) and then decide whether
 to turn nesw.  Forbid self-intersection (should be easy) and moving
 adjacent to pixel already in piece (last piece excluded)
+------
+Map letters to shapes, each piece is then a word.
+This could be a 10-answer meta puzzle.
+
+Each puzzle title can be accompanied by its piece diagram, assuming
+puzzle titles are verbose enough to use all the relevant letters.
+
+eg, for hooky, we have:
+
+1 BKF???H
+2 BHECH   (ie, BRIAR)
+3 BAL
+4 EHGF
+5 B?D?M?
+6 HEKL
+7 CJEHK
+8 K?H?C?
+9 DIMF
+A I???IAI (ie, alpaca, arcana, baobab, armada)
+
+
+solve for
+BHECH  hence
+BAL    him
+EHGF   neat
+HEKL   ends
+CJEHK  caned
+DIMF   ...t
+BKF???H hdt...e
+B?D?M?  h...
+K?H?C?  d.e.c. -- drench?
+I???IAI ....i -- sepsis
+
+solve #2:
+BHECH belie
+IWXYIAZ outworn
+BAL bra
+EHGF levy
+HEKL elsa
+DIMF homy
+CJEHK idles
+
+solve #3:
+BHECH belie
+IXYIAZ unhurt
+BAL bra
+EHGF lego
+HEKL elsa
+DIMF puzo
+CJEHK idles
+
+solve #4:
+1 BHECH anion
+2 IYZIAN eldest
+3 BAL ash
+4 EHGF inky
+5 HEKL nigh
+6 DIMF bevy
+7 CJEHK owing
+8 BNDWMX atb.v.
+9
+A
+
+solve #5:
+1 BHECH hence
+2 BAL his
+3 EHGF newt
+4 HEKL ends
+5 DIMF glut
+6 CJEHK caned
+7 XYZIAN prolix
+8 BUVMW h..u.
+9 K.H.C. d.e.c.  dock
+A 
+BKF???H hdt...e
+B?D?M?  h...
+K?H?C?  d.e.c. -- drench?
+I???IAI ....i -- sepsis
+
+solve #6:
+1 BHECH anion
+2 BAL ash
+3 EHGF inky
+4 HEKL nigh
+5 DIMF bevy
+6 KSCT glop
+7 CJEHK owing
+8 XYZIAN rudest
+9 BN..M.  at..v.
+A BKF..H  agy..n
+
+solve #7:
+1 BAL got
+2 EHGF elks
+3 HEKL lept
+4 DIMF bids
+5 CJEHK whelp
+6 KRHST palmy
+7 XYZIAN junior
+8 BHE.. gle..
+9 BND.M. grb.d.  -- DI.G.B bi.k..g bigwig? bi..ing /DI.P..B
+A BKF..H gps..l g.../
+
+
+A i
+B h
+C c
+D
+E n
+F
+G
+H e
+I
+J
+K
+L m
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
