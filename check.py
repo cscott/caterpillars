@@ -40,7 +40,7 @@ AAADHH.FG.GEE.GC
 .A.DDHFFGGG..GGC
 .A.D.H.F..GGGGCC
 AADDHHHF...G.IIC
-A.HDH.HFFFFGFFI.
+A.HDH.HFFFFGFFII
 A.HHH.H...FGGFI.
 A.H.H.H.FFFFFFII
 AA.A.JH..JF.F..I
@@ -310,6 +310,45 @@ def show_pieces(height, width, pieces):
         pieces[n] = pieces[n].rotate(r)
     print_pieces(pieces)
 
-solve(*mkpieces())
-#do_output_png('output.png', *mkpieces())
+def emit_pieces(height, width, pieces):
+    # compute max # of points in a piece
+    max_pts = max(len(p.points()) for p in pieces)
+    print "#define HEIGHT", height
+    print "#define WIDTH", width
+    print "#define NUM_PIECES", len(pieces)
+    print "struct piece {"
+    print "  int id;"
+    print "  int height;"
+    print "  int width;"
+    print "  int num_points;"
+    print "  struct { int row; int col; } points[%d];" % max_pts
+    print "} pieces[%d][4/*rotations*/] = {" % len(pieces)
+    for p in pieces:
+        print "  {"
+        for rotation in xrange(4):
+            rp = p.rotate(rotation)
+            print "    {     /* ROTATION #%d */" % rotation
+            print "      %-2d, /* id     */" % rp.id
+            print "      %-2d, /* height */" % rp.size.row
+            print "      %-2d, /* width  */" % rp.size.col
+            print "      %-2d, /* # pts  */" % len(rp.points())
+            print "      {"
+            print "       ",
+            i=0
+            for pt in rp.points():
+                if i==8:
+                    print
+                    print "       ",
+                    i=0
+                print ("{%2d,%2d}," % (pt.row, pt.col)),
+                i+=1
+            print
+            print "      }"
+            print "    },"
+        print "  },"
+    print "};"
+
+#solve(*mkpieces())
+#do_output_png('output3.png', *mkpieces())
 #show_pieces(*mkpieces())
+emit_pieces(*mkpieces())
