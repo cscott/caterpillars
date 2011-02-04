@@ -38,8 +38,8 @@ A.DD.B..E.E.CCCC
 A.AD.B.F..EE.GGC
 AAADHH.FG.GEE.GC
 .A.DDHFFGGG..GGC
-.A.D.H.F..GGGGCC
-AADDHHHF...G.IIC
+.A.D.H.FF.GGGGCC
+AADDHHHF...GIIIC
 A.HDH.HFFFFGFFII
 A.HHH.H...FGGFI.
 A.H.H.H.FFFFFFII
@@ -49,7 +49,10 @@ JJJJJ.J...J.II..
 J.J...JJJJJ.I...
 """.strip()
 
-ASSEMBLED=ASSEMBLED2
+ASSEMBLED3="""
+""".strip()
+
+ASSEMBLED=ASSEMBLED3
 OUTPUT_BASENAME='output3'
 
 class Point:
@@ -349,6 +352,6 @@ def emit_pieces(height, width, pieces):
     print "};"
 
 #solve(*mkpieces())
-#do_output_png('output3.png', *mkpieces())
+do_output_png('output3.png', *mkpieces())
 #show_pieces(*mkpieces())
-emit_pieces(*mkpieces())
+#emit_pieces(*mkpieces())
