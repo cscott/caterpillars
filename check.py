@@ -106,6 +106,9 @@ class Piece:
         x = '\n'.join(''.join((pch if c else ' ') for c in r)
                       for r in self.rows)
         return x
+    def p(self, pt):
+        return self.rows[pt.row][pt.col]
+
     def points(self):
         if self._points is None:
             def _mk_points():
@@ -274,13 +277,9 @@ def solve(height, width, pieces, output_basename):
 
 
 def print_pieces(pieces):
-    i=0
     for p in pieces:
-        print '#',i, "original origin", p.origin
+        print '#',p.id, "original origin", p.origin
         print str(p)
-        #print "-"
-        #print str(p.rotate(1))
-        i+=1
 
 def colors():
     for r in [0, 64, 128, 192, 255]:
@@ -323,11 +322,65 @@ def do_output_png(filename, height, width, pieces):
     img = Image(height, width)
     assemble_img(img, pieces, lambda img: output_png(filename, img))
 
+def to_relative(path, prevdir=None):
+    if len(path)==0: return ''
+    nextdir, path = path[0], path[1:]
+    if prevdir is None:
+        return '*' + to_relative(path, nextdir)
+    if nextdir == prevdir:
+        return 's' + to_relative(path, nextdir)
+    if (prevdir,nextdir) in [('n','e'), ('e','s'), ('s','w'), ('w','n')]:
+        return 'r' + to_relative(path, nextdir)
+    if (prevdir,nextdir) in [('n','w'), ('e','n'), ('s','e'), ('w','s')]:
+        return 'l' + to_relative(path, nextdir)
+    assert False
+
+def trace_from(piece, pt):
+    last=None
+    result=[]
+    neigh={'n':Point(-1,0), 'e':Point(0,1), 's':Point(1,0), 'w':Point(0,-1)}
+    found_next = True
+    while found_next:
+        found_next = False
+        for dir,dpt in neigh.iteritems():
+            npt = pt + dpt
+            if last is not None and npt == last: continue
+            if npt.row < 0 or npt.col < 0: continue
+            if npt.row >= piece.size.row or npt.col >= piece.size.col: continue
+            if not piece.p(npt): continue
+            # ok, this is the next point
+            last = pt
+            pt = npt
+            result.append(dir)
+            found_next = True
+            break
+    dir_str = ''.join(result)
+    rel_str = to_relative(dir_str)
+    print "Tracing #", piece.id, "from", pt, "length", len(dir_str)+1
+    print 'Absolute:', dir_str
+    print 'Relative:', rel_str
+    return rel_str
+
+def show_piece(piece):
+    # find starting location (only one orthogonal neighbor)
+    results=[]
+    for pt in piece.points():
+        neighbors=0
+        if pt.row > 0 and piece.p(pt+Point(-1,0)): neighbors+=1
+        if pt.col > 0 and piece.p(pt+Point(0,-1)): neighbors+=1
+        if pt.row < (piece.size.row-1) and piece.p(pt+Point(1,0)): neighbors+=1
+        if pt.col < (piece.size.col-1) and piece.p(pt+Point(0,1)): neighbors+=1
+        assert neighbors in [1,2]
+        if neighbors==1:
+            results.append(trace_from(piece, pt))
+    return tuple(results)
+
 def show_pieces(height, width, pieces):
-    # rotate some of them so that "L hook" is consistent.
-    for n,r in [(0,3),(1,2),(2,1),(3,1),(6,1),(7,1),(8,1)]:
-        pieces[n] = pieces[n].rotate(r)
-    print_pieces(pieces)
+    results=[]
+    for p in pieces:
+        print_pieces([p])
+        results.append(show_piece(p))
+    print results
 
 def emit_pieces(f, height, width, pieces):
     # compute max # of points in a piece
@@ -383,3 +436,4 @@ def write_pngs():
 write_headers()
 write_pngs()
 #solve(*mkpieces(ASSEMBLED2(), 'output2'))
+show_pieces(*mkpieces(ASSEMBLED3))

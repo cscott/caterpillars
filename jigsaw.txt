@@ -156,3 +156,55 @@ Match against ***
 Trace orthogonal from there (not backtracking).
 Try both versions: either side could be the head.
 ----------
+OK, 9 pieces:
+
+0 *lsssslrslsrssrl   [17]
+0 *rlsslsrslrs|SSSR|
+1 *|SSSR|lsrsslrl      [14]
+1 *|RLRSSL|SRLSSS|
+2 *rsssl|SLSSS|rsrlr   [17]
+2 *lrl|SLSSS|rsrsssl
+3 *srl|SSRS|lrss|SSSR|s|SSSR|lrslrlr [29]
+3 *lrlrslrlsss|SLSSS|sslrslssrls
+4 *s|SLSSS|srsrsslss   [17]
+4 *|SSRS|sl|SLSSS|srss
+5 *rlrssr|SSSR|s       [13]
+5 *|SLSSS|lsslrl
+6 *l|SLSSS|lrlrl|SSSR|lsslsl       [23]
+6 *rsrs|SRLSSS|rlrlr|SSSR|sr
+7 *lssrlsslssrlrsr   [17]
+7 *lslrl|SSRS|srlssr
+8 *srsrslrlsrsrsslrl [19]
+8 *RLRSSL|slsrlrslsls
+
+with min=2, max=4:
+FOUND ONE 9
+Possibility([1, 0, 1, 1, 0, 1, 0, 1, 0], set(['rs', 'ss', 'sr', '*', 'lrl', 'ssl', 'ls', 'sl', 'rl']), 0)
+0 HECGABC 7
+1 BCFAGH 6
+2 DGBCCBG 7
+3 DADBEBBGAFCF 12
+4 EBBAAGB 7       - unneedy, goodden
+5 GBGEH 5                    dodge/dodgy
+6 FFEHHBCFGG 10
+7 FDBACFC 7
+8 CCGHCCEH 8
+Max word length: 12
+Min word length: 5
+------------------------
+FOUND ONE 18
+Possibility([0, 0, 0, 1, 0, 0, 0, 1, 0], set(['rsl', 'lsl', 'lrl', 'sss', 'ssr', 'ssl', 'lrs', 'ssrs', 'lss', 'slrl', 'rls', 'rlr', 'rsrs', '*', 'srl', 'sls', 'srs', 'rss']), 0)
+0 IFAPN 5
+1 DKQC 4
+2 QOIPL 5
+3 CAKDIDGIK 9
+4 FDPQI 5
+5 LHH 3
+6 BDCKEIB 7
+7 BKPNE 5
+8 PAKMJ 5
+Min 3 Max 4
+Number of shapes: 17
+Max word length: 9
+Min word length: 3
+--------
