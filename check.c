@@ -1,11 +1,22 @@
-//#include "pieces1.h"
-#include "pieces2.h"
+#ifdef USE_PIECE_1
+# include "pieces1.h"
+#endif
+#ifdef USE_PIECE_2
+# include "pieces2.h"
+#endif
+#ifdef USE_PIECE_3
+# include "pieces3.h"
+#endif
 
 #include <stdio.h>
 #include <string.h>
 
 int board[HEIGHT][WIDTH];
 int num_solutions=0;
+
+//#define CHECK_MIRRORED
+#define CHECK_ROTATED
+//#define RUN_BACKWARDS
 
 void print_solution(void) {
     int r, c;
@@ -46,13 +57,34 @@ int place_one(int piece_no) {
 	print_solution();
 	return;
     }
-    for (rotation=0; rotation < 4; rotation++) {
+#ifdef CHECK_MIRRORED
+# ifdef CHECK_ROTATED
+    rotation = 8;
+# else
+#   error Cannot check just mirrored w/o reworking the code.  Too bad.
+# endif
+#else /* don't check mirrored */
+# ifdef CHECK_ROTATED
+    rotation = 4;
+# else
+    rotation = 1;
+# endif
+#endif
+    for (rotation--; rotation >=0; rotation--) {
 	int h = HEIGHT - pieces[piece_no][rotation].height;
 	int w = WIDTH  - pieces[piece_no][rotation].width;
+	// first piece doesn't rotate (kill inherent symmetry of solutions)
+	// (first piece doesn't mirror, either)
+	if (piece_no==0 && rotation!=0) continue;
+#ifdef RUN_BACKWARDS
+	for (row=h; row >= 0; row--) {
+	    for (col=w; col >= 0; col--) {
+#else
 	for (row=0; row <= h; row++) {
 	    for (col=0; col <= w; col++) {
+#endif
 		if (placeable(&pieces[piece_no][rotation], row, col)) {
-		    if (piece_no < 3) {
+		    if (piece_no < 2) {
 			printf("[%d] Placing piece %d (rot %d) at %d,%d\n",
 			       num_solutions, piece_no, rotation, row, col);
 			fflush(stdout);

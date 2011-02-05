@@ -139,3 +139,20 @@ W
 X
 Y
 Z
+------------------------
+Square-ish caterpillars, one per letter.
+(Use words from alice?)
+Have tails. Every caterpillar starts from an egg, like this: (<
+
+(< E < S       G < O < T <   <- this is the mouth of the caterpillar
+       ^       v
+       C < A < R
+
+Each letter can be longer pieces of the caterpiller, not just one
+segment.
+-----------
+Match against *** 
+              * *  (rotated) to find start/end points.
+Trace orthogonal from there (not backtracking).
+Try both versions: either side could be the head.
+----------

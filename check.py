@@ -39,7 +39,7 @@ A.AD.B.F..EE.GGC
 AAADHH.FG.GEE.GC
 .A.DDHFFGGG..GGC
 .A.D.H.FF.GGGGCC
-AADDHHHF...GIIIC
+AADDHHHF..FGIIIC
 A.HDH.HFFFFGFFII
 A.HHH.H...FGGFI.
 A.H.H.H.FFFFFFII
@@ -50,10 +50,25 @@ J.J...JJJJJ.I...
 """.strip()
 
 ASSEMBLED3="""
+AA..BBBBBDDD....
+A.CC.CCCBBBDDDD.
+A..C.C.CC.B...D.
+A.EC.C..C.B.FFDD
+A.EC.C.D..BB.FFD
+AAECCC.DD.FBB.FD
+.AEEEEEEDDF...FD
+.AAA...E.DFFFFFD
+GGGAEEEE.DD....D
+G.GAE.HHHHDDDDDD
+G.AAE.H..HHHHIII
+G.A.E.H.II..H..I
+GG.H.HH..II..III
+.GGHHH..GGI.II..
+..GGGGG..GI.I...
+......GGGGIII...
 """.strip()
 
-ASSEMBLED=ASSEMBLED3
-OUTPUT_BASENAME='output3'
+ALL_PUZZLES=[ASSEMBLED1, ASSEMBLED2, ASSEMBLED3]
 
 class Point:
     def __init__(self, row, col):
@@ -199,7 +214,7 @@ class Image:
                       for r in self.rows)
         return x
 
-def mkpieces():
+def mkpieces(ASSEMBLED):
     pieces = []
     pict = ASSEMBLED.split()
     for r in xrange(len(pict)):
@@ -216,13 +231,13 @@ def mkpieces():
     return (len(pict), len(pict[0]), pieces)
 
 TOTAL_FOUND=0
-def place_one(img, pieces, result):
+def place_one(img, pieces, result, output_basename):
     global TOTAL_FOUND
     if len(pieces)==0:
         print "Found one!"
         print ', '.join(str(r) for r in result)
         print img
-        output_png("%s-%02d.png" % (OUTPUT_BASENAME, TOTAL_FOUND), img)
+        output_png("%s-%02d.png" % (output_basename, TOTAL_FOUND), img)
         TOTAL_FOUND += 1
         return 1 # success
     num_results = 0
@@ -233,7 +248,8 @@ def place_one(img, pieces, result):
             print "Attempting to place", place
         with img.setpts(place.points(), place.piece.id) as success:
             if success:
-                num_results += place_one(img, pieces[1:], result+[place])
+                num_results += place_one(img, pieces[1:], result+[place],
+                                         output_basename)
     return num_results
 
 def gen_placements(piece, height, width):
@@ -251,9 +267,9 @@ def gen_placements(piece, height, width):
         if NO_ROTATION or piece.id==0: break
         rp = rp.rotate(1)
 
-def solve(height, width, pieces):
+def solve(height, width, pieces, output_basename):
     print_pieces(pieces)
-    num_sol = place_one(Image(height, width), pieces, [])
+    num_sol = place_one(Image(height, width), pieces, [], output_basename)
     print num_sol, "solutions found."
 
 
@@ -313,45 +329,57 @@ def show_pieces(height, width, pieces):
         pieces[n] = pieces[n].rotate(r)
     print_pieces(pieces)
 
-def emit_pieces(height, width, pieces):
+def emit_pieces(f, height, width, pieces):
     # compute max # of points in a piece
     max_pts = max(len(p.points()) for p in pieces)
-    print "#define HEIGHT", height
-    print "#define WIDTH", width
-    print "#define NUM_PIECES", len(pieces)
-    print "struct piece {"
-    print "  int id;"
-    print "  int height;"
-    print "  int width;"
-    print "  int num_points;"
-    print "  struct { int row; int col; } points[%d];" % max_pts
-    print "} pieces[%d][4/*rotations*/] = {" % len(pieces)
+    print >>f, "#define HEIGHT", height
+    print >>f, "#define WIDTH", width
+    print >>f, "#define NUM_PIECES", len(pieces)
+    print >>f, "struct piece {"
+    print >>f, "  int id;"
+    print >>f, "  int height;"
+    print >>f, "  int width;"
+    print >>f, "  int num_points;"
+    print >>f, "  struct { int row; int col; } points[%d];" % max_pts
+    print >>f, "} pieces[%d][8/*rotations,mirroring*/] = {" % len(pieces)
     for p in pieces:
-        print "  {"
-        for rotation in xrange(4):
-            rp = p.rotate(rotation)
-            print "    {     /* ROTATION #%d */" % rotation
-            print "      %-2d, /* id     */" % rp.id
-            print "      %-2d, /* height */" % rp.size.row
-            print "      %-2d, /* width  */" % rp.size.col
-            print "      %-2d, /* # pts  */" % len(rp.points())
-            print "      {"
-            print "       ",
-            i=0
-            for pt in rp.points():
-                if i==8:
-                    print
-                    print "       ",
-                    i=0
-                print ("{%2d,%2d}," % (pt.row, pt.col)),
-                i+=1
-            print
-            print "      }"
-            print "    },"
-        print "  },"
-    print "};"
+        print >>f, "  { /* Piece #%d */" % p.id
+        for mirror in xrange(2):
+            mp = p
+            for rotation in xrange(4):
+                rp = mp.rotate(rotation)
+                print >>f, "    {     /* ROTATION #%d %s*/" % \
+                      (rotation, ("MIRRORED " if mirror==1 else ""))
+                print >>f, "      %-2d, /* id     */" % rp.id
+                print >>f, "      %-2d, /* height */" % rp.size.row
+                print >>f, "      %-2d, /* width  */" % rp.size.col
+                print >>f, "      %-2d, /* # pts  */" % len(rp.points())
+                print >>f, "      {"
+                print >>f, "       ",
+                i=0
+                for pt in rp.points():
+                    if i==8:
+                        print >>f
+                        print >>f, "       ",
+                        i=0
+                    print >>f, ("{%2d,%2d}," % (pt.row, pt.col)),
+                    i+=1
+                print >>f
+                print >>f, "      }"
+                print >>f, "    },"
+            mp = mp.mirror()
+        print >>f, "  },"
+    print >>f, "};"
 
-#solve(*mkpieces())
-do_output_png('output3.png', *mkpieces())
-#show_pieces(*mkpieces())
-#emit_pieces(*mkpieces())
+def write_headers():
+    for i in xrange(len(ALL_PUZZLES)):
+        with open('pieces%d.h' % (i+1), 'w') as f:
+            emit_pieces(f, *mkpieces(ALL_PUZZLES[i]))
+
+def write_pngs():
+    for i in xrange(len(ALL_PUZZLES)):
+        do_output_png('output%d.png' % (i+1), *mkpieces(ALL_PUZZLES[i]))
+
+write_headers()
+write_pngs()
+#solve(*mkpieces(ASSEMBLED2(), 'output2'))

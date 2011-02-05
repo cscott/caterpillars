@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from __future__ import with_statement
 import png
+import sys
 
 def read(filename):
     palette = {}
@@ -22,4 +23,5 @@ def read(filename):
             return chr(ord('A')+c)
         return '\n'.join(''.join(char(c) for c in r) for r in rows)
 
-print read('alternate.png')
+filename = sys.argv[1] if len(sys.argv) > 1 else 'alternate.png'
+print read(filename)
