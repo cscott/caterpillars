@@ -14,9 +14,6 @@ with open(WORDFILE) as f:
         word = word.strip().lower()
         if not word: continue
         if "'" in word: continue
-        # Words With Friends is played on a 15x15 grid; throw out any words
-        # longer than that.
-        if len(word) > 15: continue
         start = tries.setdefault(len(word), {})
         for letter in word:
             start = start.setdefault(letter, {})

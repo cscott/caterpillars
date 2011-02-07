@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "board.h"
 #include "trie.h"
 
 extern uint32_t trie_data[];
