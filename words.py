@@ -63,6 +63,8 @@ def add_mapping(word, possibility, assignment):
                 del assignment[letter_from]
                 del assignment[letter_to]
 
+# should map one letter in assignment at a time, and avoid re-checking
+# idential partial assignments that have failed
 def find_assignment(input, assignment):
     if len(input)==0: return dict(assignment) # success!
     word, input = input[0], input[1:]
@@ -82,14 +84,25 @@ def find_assignment(input, assignment):
     # no, we couldn't make this word
     return None
 
-input=[#"BHECH",
-    "BHEQP",
-    "BAL", "EHGF", "HEKL", "CJEHK", "DIMF", "XYZIAN",
-    "KOHRS",
-    "DITPUVB", #"DI.G.B"
-    #"BKPQR"
-    #"BNUVMW"
-    ]
+#input=[#"BHECH",
+#    "BHEQP",
+#    "BAL", "EHGF", "HEKL", "CJEHK", "DIMF", "XYZIAN",
+#    "KOHRS",
+#    "DITPUVB", #"DI.G.B"
+#    #"BKPQR"
+#    #"BNUVMW"
+#    ]
+input=[
+    "IFAPN",
+    "DKQC",
+    "QOIPL",
+    #"CAKDIDGIK",
+    "FDPQI",
+    "LHH",
+    ##"BDCKEIB",
+    "BKPNE",
+    "PAKMJ",
+]
 input.sort(key=lambda x: len(DICT[letter_pattern(x)]))
 
 # shuffle dictionary so we don't just get first solution in alpha order
