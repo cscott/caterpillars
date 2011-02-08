@@ -7,6 +7,7 @@ NUMBER='NUMBER'
 GOAL='GOAL'
 
 tries = {}
+max_word_len = 0
 with open(WORDFILE) as f:
     while True:
         word = f.readline()
@@ -14,7 +15,8 @@ with open(WORDFILE) as f:
         word = word.strip().lower()
         if not word: continue
         if "'" in word: continue
-        start = tries.setdefault(len(word), {})
+        max_word_len = max(max_word_len, len(word))
+        start = tries
         for letter in word:
             start = start.setdefault(letter, {})
         start[GOAL] = True
@@ -33,7 +35,7 @@ def number(s, lookup, first_goal):
     s[NUMBER] = count
     # compute the letter mask.
     mask = sum(1<<lnum for (lnum,l) in LETTERS if l in s)
-    if GOAL in s: mask += 1 << 27 # special 'is_goal' flag
+    if GOAL in s: mask += 1 << 26 # special 'is_goal' flag
     # add the letter mask to the lookup table
     lookup.append(mask)
     # now add the indices of the 'next' pointers, recursing as necessary
@@ -49,11 +51,12 @@ def number(s, lookup, first_goal):
     # return the index of this entry
     return s[NUMBER]
 
-lookup = [0] * 15
+lookup=[]
 first_goal = {}
-for wlen in sorted(tries.keys()):
-    lookup[wlen-1] = number(tries[wlen], lookup, first_goal)
+number(tries, lookup, first_goal)
     
-#print "uint32_t word_trie[] = {"
+print "#include <stdint.h>"
+print "#define MAX_WORD_LEN", max_word_len
+print "uint32_t trie_data[] = {"
 for i in lookup: print str(i)+","
-#print "};"
+print "};"

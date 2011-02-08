@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define TRIE_NO_STATE (~(uint32_t)0);
+
 union letter_mask {
     struct {
 	unsigned a:1;
@@ -32,27 +34,32 @@ union letter_mask {
 	unsigned x:1;
 	unsigned y:1;
 	unsigned z:1;
-	unsigned blank:1;
 	unsigned is_goal:1;
     };
     unsigned mask;
 };
 
+struct trie {
+    union letter_mask letter_mask;
+    uint32_t next[0];
+};
+
+#if 0
 struct word_mask {
     int word_len;
     union letter_mask mask[15];
 };
-
-struct board;
-struct word_mask;
-
 typedef void (*match_cb_func)(char *buf, int word_len);
-
 void trie_match_mask(struct word_mask *word_mask, match_cb_func match_cb);
+void trie_print_word_mask(struct word_mask *word_mask);
+#endif
+
 
 bool trie_is_word(char *word);
-void trie_print_all_words(int word_len);
+void trie_print_all_words();
+struct trie *trie_for_index(uint32_t index);
 
-void trie_print_word_mask(struct word_mask *word_mask);
+void trie_is_goal_state(uint32_t trie_pos);
+
 
 #endif /* TRIE_H_INCLUDED */

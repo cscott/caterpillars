@@ -54,11 +54,11 @@ int state_score(state_t *state) {
 state_t *state_add_mapping(state_t *state, char letter, shape_t shape) {
     state_t *ns;
     int i = (shape/16), j = (shape%16);
+    assert (letter >= 'A' && letter <= 'Z');
     // shallow copy
     ns = malloc(sizeof(*ns));
     memcpy(ns, state, sizeof(*ns));
     // now add mapping.
-    assert (letter >= 'A' && letter <= 'Z');
     ns->letter_to_shape[letter-'A'] = shape;
     ns->shape_mapped[i] |= (1<<j);
     // ok! (still needs piece/trie positions updated)

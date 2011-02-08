@@ -5,13 +5,9 @@
 #include <ctype.h>
 
 #include "trie.h"
+#define MAX_WORD_LEN 28
 
 extern uint32_t trie_data[];
-
-struct trie {
-    union letter_mask letter_mask;
-    unsigned next[0];
-};
 
 static bool check_from(unsigned index, char *rest) {
     struct trie *trie = (struct trie *) &trie_data[index];
@@ -35,36 +31,35 @@ static bool check_from(unsigned index, char *rest) {
 }
 
 bool trie_is_word(char *word) {
-    int word_len = strlen(word);
-    if (word_len < 2 || word_len > 15) return false;
-    return check_from(trie_data[word_len-1], word);
+    return check_from(0, word);
 }
 
 static void print_all_words_from(unsigned index, char *buf, int bufidx) {
-    struct trie *trie = (struct trie *) &trie_data[index];
-    unsigned mask = trie_data[index], desired;
+    struct trie *trie = trie_for_index(index);
+    unsigned mask = trie->letter_mask.mask, desired;
     int i;
 
     if (trie->letter_mask.is_goal) {
 	buf[bufidx] = '\0';
 	printf("%s\n", buf);
     }
-    index++;
     for (i=0; i<26; i++) {
 	desired = 1 << i;
 	if (mask & desired) {
 	    buf[bufidx] = 'a' + i;
-	    print_all_words_from(trie_data[index], buf, bufidx+1);
-	    index++;
+	    print_all_words_from(trie->next[i], buf, bufidx+1);
 	}
     }
 }
-void trie_print_all_words(int word_len) {
-    char buf[16];
-    if (word_len < 2 || word_len > 15) return;
-    print_all_words_from(trie_data[word_len-1], buf, 0);
+void trie_print_all_words(void) {
+    char buf[MAX_WORD_LEN+1];
+    print_all_words_from(0, buf, 0);
+}
+struct trie *trie_for_index(uint32_t index) {
+    return (struct trie *) &trie_data[index];
 }
 
+#if 0
 /** Support search. */
 static void match_mask_from(int word_len, union letter_mask *mask,
 			    unsigned index, char *buf, int bufidx,
@@ -132,3 +127,4 @@ void trie_print_word_mask(struct word_mask *word_mask) {
 	}
     }
 }
+#endif

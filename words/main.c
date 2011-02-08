@@ -5,6 +5,35 @@
 #include "state.h"
 #include "trie.h"
 
+/* state is: (188 bytes)
+current letter-to-shape mapping. (52 bytes)
+for each of 9*2 possible pieces: (90 bytes)
+   current position in trie (uint32)
+   current position in piece(uint8)
+set of mapped shapes (for efficiency) (46 bytes) (not necessary to hash)
+  hash complete state & keep it unique
+
+shape =  trie index, as computed below = max 362 = 16 bits still.
+*/
+
+#define NUM_PIECES 9
+#define NUM_VARIANTS 2
+
+#define MIN_SEQ_LEN 3
+#define MAX_SEQ_LEN 5
+
+char *pieces[NUM_PIECES][NUM_VARIANTS] = {
+    {"lsssslrslsrssrl*", "rlsslsrslrssssr*"},
+    {"sssrlsrsslrl*", "rlrsslsrlsss*"},
+    {"rssslslsssrsrlr*", "lrlslsssrsrsssl*"},
+    {"srlssrslrsssssrssssrlrslrlr*", "lrlrslrlsssslssssslrslssrls*"},
+    {"sslssssrsrsslss*", "ssrsslslssssrss*"},
+    {"rlrssrsssrs*", "slssslsslrl*"},
+    {"lslssslrlrlsssrlsslsl*", "rsrssrlsssrlrlrsssrsr*"},
+    {"lssrlsslssrlrsr*", "lslrlssrssrlssr*"},
+    {"srsrslrlsrsrsslrl*", "rlrsslslsrlrslsls*"},
+};
+
 shape_t shape_parse(char *shape_str, int len) {
     shape_t shape = 0;
     assert (len > 0);
@@ -25,18 +54,7 @@ shape_t shape_parse(char *shape_str, int len) {
     }
 }
 
-
-/* state is: (188 bytes)
-current letter-to-shape mapping. (52 bytes)
-for each of 9*2 possible pieces: (90 bytes)
-   current position in trie (uint32)
-   current position in piece(uint8)
-set of mapped shapes (for efficiency) (46 bytes) (not necessary to hash)
-  hash complete state & keep it unique
-
-shape = 16 bit integer: 3 bit length, 6 pairs of bits for twists.
- alternatively use trie index, as computed below = max 362 = 16 bits still.
-
+/*
 do one is:
   for each piece:
     if not done:
@@ -49,7 +67,72 @@ do one is:
            update piece's position in piece
            if validity_check:
              add to heap of states
+*/
 
+void extend_piece_by(state_t *state, struct trie *trie, shape_t shape,
+		     int piece, int var, int len) {
+    uint32_t mask;
+    int i, j;
+    state_t *ns;
+    bool mapped = state_is_shape_mapped(state, shape);
+    /* for each possible next letter in trie: */
+    for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
+	if ((trie->letter_mask.mask & mask) == 0) continue;
+	j++;
+	if (mapped && state->letter_to_shape[i] != shape) continue;
+	ns = state_add_mapping(state, i+'A', shape);
+	// update piece/trie positions.
+	ns->trie_pos[piece][var] = trie->next[j];
+	ns->piece_pos[piece][var] += len;
+	// check and add new state
+	if (validate(ns))
+	    add_to_heap(ns);
+	else
+	    state_free(ns);
+    }
+}
+
+void extend_piece(state_t *state, int piece, int var) {
+    uint32_t trie_pos = state->trie_pos[piece][var];
+    struct trie *trie;
+    int pi;
+    /* Is this a dead piece? */
+    if (trie_pos == TRIE_NO_STATE)
+	return;
+    trie = trie_for_index(trie_pos);
+    /* Is this an end state in the piece? */
+    pi = state->piece_pos[piece][var];
+    if (pieces[piece][var][pi] == '\0' && trie->letter_mask.is_goal)
+	return;
+    /* ok, for each possible next shape: */
+    for (i=1; i <= MAX_SEQ_LEN; i++) {
+	if (pieces[piece][var][pi+i] == '\0') break;
+	if (i < MIN_SEQ_LEN) continue;
+	/* special case final '*' */
+	if (pieces[piece][var][pi+i-1] == '*') {
+	    shape = shape_parse(&pieces[piece][var][pi], i-1);
+	    // three different possible endings
+	    shape = (3*shape) + 3;
+	    extend_piece_by(state, trie, shape+0, piece, var, i/*length*/);
+	    extend_piece_by(state, trie, shape+1, piece, var, i/*length*/);
+	    extend_piece_by(state, trie, shape+2, piece, var, i/*length*/);
+	} else {
+	    shape = shape_parse(&pieces[piece][var][pi], i);
+	    extend_piece_by(state, trie, shape, piece, var, i/*length*/);
+	}
+    }
+}
+
+void extend_state(state_t *state) {
+    int i,j;
+    for (i=0; i<NUM_PIECES; i++) {
+	for (j=0; j<NUM_VARIANTS; j++) {
+	    extend_piece(state, i, j);
+	}
+    }
+}
+
+/*
 validity_check is:
   done = 0
   for each piece:
@@ -101,4 +184,9 @@ but it's ~26 times slower to look up the piece corresponding to a given letter
 
 
 int main(int argc, char **argv) {
+    trie_print_all_words();
+    printf("scott: %d\n", trie_is_word("scott"));
+    printf("ship: %d\n", trie_is_word("ship"));
+    printf("a: %d\n", trie_is_word("a"));
+    printf("aa: %d\n", trie_is_word("aa"));
 }
