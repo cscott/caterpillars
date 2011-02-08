@@ -86,12 +86,18 @@ void extend_piece_by(state_t *state, struct trie *trie, shape_t shape,
     uint32_t mask;
     int i, j;
     state_t *ns;
-    bool mapped = state_is_shape_mapped(state, shape);
+    bool shape_mapped = state_is_shape_mapped(state, shape);
     /* for each possible next letter in trie: */
     for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
 	if ((trie->letter_mask.mask & mask) == 0) continue;
 	j++;
-	if (mapped && state->letter_to_shape[i] != shape) continue;
+	// is this shape or letter already spoken for?
+	if (shape_mapped) {
+	    if (state->letter_to_shape[i] != shape) continue;
+	} else {
+	    if (state_is_letter_mapped(state, i+'A')) continue;
+	}
+	// ok, new state!
 	ns = state_add_mapping(state, i+'A', shape);
 	// update piece/trie positions.
 	ns->trie_pos[piece][var] = trie->next[j];
@@ -136,6 +142,9 @@ void extend_piece(state_t *state, int piece, int var) {
     }
 }
 
+// XXX rather than extend all pieces, just extend the 'current' piece,
+// or if that's done, extend the two options for the 'next' piece.
+// (or extend the two options for the first piece, if a new state)
 void extend_state(state_t *state) {
     int i,j;
     for (i=0; i<NUM_PIECES; i++) {
@@ -153,6 +162,10 @@ validity_check is:
        are we at goal state in trie?
           yes: done++, next piece
           no: invalid word, return INVALID
+    min_possible_letters = round up: (len(piece)-piece_pos)/MAX_SEQ_LEN
+    max_possible_letters = round up: (len(piece)-piece_pos)/MIN_SEQ_LEN
+    if min_possible_letters > trie.max_len or
+       max_possible_letters < trie.min_len: this piece is INVALID
     look at possible next letters
     look at possible next shapes
     verify that 'possible letters' union 'map.get(shapes, set(unused letters))'
@@ -289,7 +302,7 @@ void find_solution(void) {
     heap_push(heap, state_new());
     while (!heap_is_empty(heap)) {
 	state_t *state = heap_pop(heap);
-	// XXX example state -- is it a winner?
+	// XXX examine state -- is it a winner?
 	extend_state(state);
 	state_free(state);
     }
@@ -297,7 +310,7 @@ void find_solution(void) {
 }
 
 int main(int argc, char **argv) {
-#if 1
+#if 0
     char *samples[] = { "s", "r", "l", "ss", "sr", "rls", "rl", "rll", NULL };
     int i;
     for (i=0; samples[i] != NULL; i++)
@@ -309,5 +322,5 @@ int main(int argc, char **argv) {
     printf("a: %d\n", trie_is_word("a"));
     printf("aa: %d\n", trie_is_word("aa"));
 #endif
-    //find_solution();
+    find_solution();
 }

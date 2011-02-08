@@ -16,7 +16,7 @@ state_t *state_new(void) {
     }
     for (i=0; i<26; i++)
 	s->letter_to_shape[i] = NO_SHAPE;
-    for (i=0; i<sizeof(s->shape_mapped); i++)
+    for (i=0; i < (sizeof(s->shape_mapped)/sizeof(s->shape_mapped[0])); i++)
 	s->shape_mapped[i] = 0;
     return s;
 }
