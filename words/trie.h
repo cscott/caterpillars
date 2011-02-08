@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define TRIE_NO_STATE (~(uint32_t)0);
+#define TRIE_NO_STATE (~(uint32_t)0)
 
 union letter_mask {
     struct {
@@ -34,9 +34,10 @@ union letter_mask {
 	unsigned x:1;
 	unsigned y:1;
 	unsigned z:1;
-	unsigned is_goal:1;
+	unsigned min_len:3; // 0="goal state", 7="7 or greater"
+	unsigned max_len:3; // 7="7 or greater"
     };
-    unsigned mask;
+    uint32_t mask;
 };
 
 struct trie {

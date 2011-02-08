@@ -5,9 +5,10 @@ import os
 WORDFILE='enable1.txt'
 NUMBER='NUMBER'
 GOAL='GOAL'
+MAXLEN='MAXLEN'
+MINLEN='MINLEN'
 
 tries = {}
-max_word_len = 0
 with open(WORDFILE) as f:
     while True:
         word = f.readline()
@@ -15,10 +16,16 @@ with open(WORDFILE) as f:
         word = word.strip().lower()
         if not word: continue
         if "'" in word: continue
-        max_word_len = max(max_word_len, len(word))
+        word_len = len(word)
         start = tries
+        start[MAXLEN] = max(word_len, start.get(MAXLEN, 0))
+        start[MINLEN] = min(word_len, start.get(MINLEN, 7))
         for letter in word:
             start = start.setdefault(letter, {})
+            word_len -= 1
+            start[MAXLEN] = max(word_len, start.get(MAXLEN, 0))
+            start[MINLEN] = min(word_len, start.get(MINLEN, 7))
+        assert word_len == 0
         start[GOAL] = True
 
 # breadth-first search of trie; assign numbers
@@ -26,7 +33,7 @@ LETTERS = [(lnum, chr(ord('a')+lnum)) for lnum in xrange(26)]
 def number(s, lookup, first_goal):
     if NUMBER in s: return s[NUMBER]
     count = len(lookup)
-    if GOAL in s and len(s) == 1: # this is a terminal goal state
+    if s[MINLEN] == 0 and s[MAXLEN] == 0: # this is a terminal goal state
         if len(first_goal) == 0:
             first_goal[NUMBER] = count
         else:
@@ -35,7 +42,11 @@ def number(s, lookup, first_goal):
     s[NUMBER] = count
     # compute the letter mask.
     mask = sum(1<<lnum for (lnum,l) in LETTERS if l in s)
-    if GOAL in s: mask += 1 << 26 # special 'is_goal' flag
+    assert (GOAL in s) == (s[MINLEN] == 0)
+    # add min len and max len, limited to 7
+    min_len = min(s[MINLEN], 7)
+    max_len = min(s[MAXLEN], 7)
+    mask += (min_len << 26) + (max_len << 29)
     # add the letter mask to the lookup table
     lookup.append(mask)
     # now add the indices of the 'next' pointers, recursing as necessary
@@ -56,7 +67,8 @@ first_goal = {}
 number(tries, lookup, first_goal)
     
 print "#include <stdint.h>"
-print "#define MAX_WORD_LEN", max_word_len
+print "#define MAX_WORD_LEN", tries[MAXLEN]
+print "#define MIN_WORD_LEN", tries[MINLEN]
 print "uint32_t trie_data[] = {"
-for i in lookup: print str(i)+","
+for i in lookup: print str(i)+"UL,"
 print "};"

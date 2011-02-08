@@ -15,7 +15,8 @@ static bool check_from(unsigned index, char *rest) {
     char next = *rest;
 
     if (next == '\0')
-	return trie->letter_mask.is_goal;
+	return (trie->letter_mask.min_len==0); /* is this goal state? */
+
 
     next = toupper(next) - 'A';
     desired = 1 << next;
@@ -37,17 +38,17 @@ bool trie_is_word(char *word) {
 static void print_all_words_from(unsigned index, char *buf, int bufidx) {
     struct trie *trie = trie_for_index(index);
     unsigned mask = trie->letter_mask.mask, desired;
-    int i;
+    int i, j;
 
-    if (trie->letter_mask.is_goal) {
+    if (trie->letter_mask.min_len==0/* is goal? */) {
 	buf[bufidx] = '\0';
 	printf("%s\n", buf);
     }
-    for (i=0; i<26; i++) {
+    for (i=0, j=0; i<26; i++) {
 	desired = 1 << i;
 	if (mask & desired) {
 	    buf[bufidx] = 'a' + i;
-	    print_all_words_from(trie->next[i], buf, bufidx+1);
+	    print_all_words_from(trie->next[j++], buf, bufidx+1);
 	}
     }
 }
@@ -67,7 +68,7 @@ static void match_mask_from(int word_len, union letter_mask *mask,
     struct trie *trie = (struct trie *) &trie_data[index];
     unsigned trie_mask = trie_data[index], desired;
     int i;
-    if (trie->letter_mask.is_goal) {
+    if (trie->letter_mask.min_len==0) {
 	buf[bufidx] = '\0'; // convenience
 	match_cb(buf, word_len);
 	return;
