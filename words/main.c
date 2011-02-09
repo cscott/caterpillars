@@ -25,15 +25,15 @@ shape =  trie index, as computed below = max 362 = 16 bits still.
 #define MAX_PIECE_LEN 30 /* larger than largest piece */
 
 char *pieces[NUM_PIECES][NUM_VARIANTS] = {
-    {"lsssslrslsrssrl*", "rlsslsrslrssssr*"},
-    {"sssrlsrsslrl*", "rlrsslsrlsss*"},
-    {"rssslslsssrsrlr*", "lrlslsssrsrsssl*"},
-    {"srlssrslrsssssrssssrlrslrlr*", "lrlrslrlsssslssssslrslssrls*"},
-    {"sslssssrsrsslss*", "ssrsslslssssrss*"},
-    {"rlrssrsssrs*", "slssslsslrl*"},
-    {"lslssslrlrlsssrlsslsl*", "rsrssrlsssrlrlrsssrsr*"},
-    {"lssrlsslssrlrsr*", "lslrlssrssrlssr*"},
-    {"srsrslrlsrsrsslrl*", "rlrsslslsrlrslsls*"},
+    {"srlssrslrsssssrssssrlrslrlr*", "lrlrslrlsssslssssslrslssrls*"}, // 9
+    {"rlrssrsssrs*", "slssslsslrl*"}, // 1
+    {"lslssslrlrlsssrlsslsl*", "rsrssrlsssrlrlrsssrsr*"}, // 8
+    {"sssrlsrsslrl*", "rlrsslsrlsss*"}, // 2
+    {"srsrslrlsrsrsslrl*", "rlrsslslsrlrslsls*"}, // 7
+    {"lsssslrslsrssrl*", "rlsslsrslrssssr*"}, // 3
+    {"lssrlsslssrlrsr*", "lslrlssrssrlssr*"}, // 6
+    {"rssslslsssrsrlr*", "lrlslsssrsrsssl*"}, // 4
+    {"sslssssrsrsslss*", "ssrsslslssssrss*"}, // 5
 };
 
 int piece_length[NUM_PIECES]; // variants all have same length
@@ -87,12 +87,108 @@ validity_check is:
     ie, either some possible next shape currently maps to a possible next letter
         or some possible next shape is unmapped, and one of the unmapped letters
         is a possible next letter.
-    // XXX would be nice to verify a length constraint, too.
     */
+
+bool validate_piece_from(state_t *state, int piece, int var,
+			 uint32_t trie_pos, int piece_pos);
+
+bool validate_piece_from_with(state_t *state, int piece, int var,
+			      struct trie *trie, int piece_pos, int length,
+			      shape_t shape) {
+    uint32_t mask;
+    int i, j;
+    if (state_is_shape_mapped(state, shape)) {
+	// verify that the letter from this state can go here in the word
+	for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
+	    if ((trie->letter_mask.mask & mask) == 0) continue;
+	    j++; // keep track of trie index
+	    if (state->letter_to_shape[i] == shape)
+		// recurse for a bit more thorough checking
+		return validate_piece_from(state, piece, var,
+					   trie->next[j], piece_pos+length);
+	}
+	// nope, whatever letter it is, it can't go in the trie.
+    } else {
+	// verify that an *unmapped* letter can go here in the word.
+	for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
+	    if ((trie->letter_mask.mask & mask) == 0) continue;
+	    j++; // keep track of trie index
+	    if (state->letter_to_shape[i] == NO_SHAPE)
+#if 1 /* slow thorough check, or fast? */
+		if (validate_piece_from(state, piece, var,
+					trie->next[j], piece_pos+length))
+		    return true;
+#else
+		return true; // ok, sure.
+#endif
+	}
+	// no unmapped letters can go here in the word.
+    }
+    return false;
+}
+
+bool validate_piece_from(state_t *state, int piece, int var,
+			 uint32_t trie_pos, int piece_pos) {
+    struct trie *trie = trie_for_index(trie_pos);
+    int remaining = piece_length[piece] - piece_pos;
+    int max_letters = (remaining+MIN_SEQ_LEN-1)/MIN_SEQ_LEN;
+    int min_letters = (remaining+MAX_SEQ_LEN-1)/MAX_SEQ_LEN;
+    shape_t shape;
+    int i,j;
+    if (remaining == 0) // at the end of the piece, how's the word?
+	return (trie->letter_mask.min_len == 0); // ok if this is a goal state
+    // more letters than we can make from this position?
+    if (min_letters > trie->letter_mask.max_len) return false;
+    // not enough letters than we need to make a word?
+    if (max_letters < trie->letter_mask.min_len) return false;
+    // awkward size.
+    if (!can_make[remaining]) return false;
+    // check that some possible next shape is either:
+    //   a) mapped to a possible next letter (XXX: continue look ahead?), or
+    //   b) unmapped, and a possible next letter is also unmapped.
+    for (i=MIN_SEQ_LEN; i <= MAX_SEQ_LEN && i <= remaining; i++){
+	// awkward size.
+	if (!can_make[remaining-i]) continue;
+	/* special case final '*' */
+	if (pieces[piece][var][piece_pos+i-1] == '*') {
+	    shape = shape_parse(&pieces[piece][var][piece_pos], i-1);
+	    // three different possible endings
+	    shape = (3*shape) + 3;
+	    for (j=0; j<3; j++)
+		if (validate_piece_from_with(state, piece, var, trie,
+					     piece_pos, i, shape+j))
+		    return true; // ok
+	} else {
+	    shape = shape_parse(&pieces[piece][var][piece_pos], i);
+	    if (validate_piece_from_with(state, piece, var, trie,
+					 piece_pos, i, shape))
+		return true; // ok
+	}
+    }
+    return false; // hm, none of the possible shapes work.
+}
+
+bool validate_piece(state_t *state, int piece, int var) {
+    return validate_piece_from(state, piece, var,
+			       state->trie_pos[piece],
+			       state->piece_pos[piece]);
+}
+
 bool validate(state_t *state) {
-    int done = 0;
-    //XXX
-    return true;
+    int i, j;
+    if (!validate_piece(state, state->current_piece, state->current_var))
+	return false;
+    for (i=state->current_piece+1; i<NUM_PIECES; i++) {
+	bool saw_good = false;
+	for (j=0; j<NUM_VARIANTS; j++) {
+	    if (validate_piece(state, i, j)) {
+		saw_good = true;
+		break;
+	    }
+	}
+	if (!saw_good) return false; // no variants are workable
+    }
+    return true; // ok, this will fly.
 }
 
 /*
@@ -149,9 +245,6 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
     struct trie *trie;
     shape_t shape;
     int pi, i;
-    /* Is this a dead piece? */
-    if (trie_pos == TRIE_NO_STATE)
-	return;
     trie = trie_for_index(trie_pos);
     /* Is this an end state in the piece? */
     pi = state->piece_pos[piece];
@@ -167,6 +260,9 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
 	}
 	return;
     }
+    /* have we run out of word? */
+    if (trie->letter_mask.max_len == 0)
+	return;
     /* ok, for each possible next shape: */
     for (i=MIN_SEQ_LEN; i <= MAX_SEQ_LEN && (pi+i) <= piece_length[piece]; i++){
 	/* special case final '*' */
