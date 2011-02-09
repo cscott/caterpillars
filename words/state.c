@@ -76,6 +76,7 @@ int state_snprint(char *str, size_t size, state_t *state) {
     int i, sz=0;
     bool first=true;
     /* Print letter mapping */
+    if (size > 0) str[0] = '\0';
     for (i=0; i<26; i++) {
 	char l = 'A' + i;
 	if (!state_is_letter_mapped(state, l)) continue;
@@ -84,4 +85,5 @@ int state_snprint(char *str, size_t size, state_t *state) {
 	else sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), ", ");
 	sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), "%c: %s", l, buf);
     }
+    return sz;
 }

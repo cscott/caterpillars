@@ -265,7 +265,7 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
     pi = state->piece_pos[piece];
     if (pieces[piece][var][pi] == '\0' && trie->letter_mask.min_len == 0) {
 	if (piece+1 >= NUM_PIECES) {
-	    printf("SOLUTION FOUND!\n");
+	    printf("SOLUTION FOUND!  Score: %d\n", state_score(state));
 	    dump_state(state);
 	} else {
 	    /* do variants of next piece */

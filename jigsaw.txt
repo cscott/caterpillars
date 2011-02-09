@@ -244,3 +244,19 @@ BDCKEIB fhpetsf
 PAKMJ iae..
 ------
 12 to 28 blocks long, not including the initial "egg".
+
+From new solver:
+A: srlss, B: rslrs, C: rlrss, D: ssssr, E: slr, F: slss, G: lrlsl, H: rsss,
+I: rsl, J: slsrl, K: slsr, L: lssrl, M: rlr, N: lrs, O: ssss, P: srs, Q: lss,
+R: lslss, S: srls, T: ssr, U: ssl, V: rsrss, W: lrlss, X: lsls,
+Y: sss, Z: lrsrs
+
+0: ABDOMEN, 1: CHI, 2: REWAX, 3: MUST, 4: MUJIK,
+5: QUIPS, 6: LUTZ, 7: GYVE, 8: TUFTY
+
+A: srlss, B: rslrs, C: rlrss, D: ssssr, E: slr, F: lslrl, G: rss, H: slsrl,
+I: rsss, J: ssl, K: rsrss, L: slsrs, M: rlr, N: lrs, O: ssss, P: srls,
+R: srlrl, S: lrls, T: srsrs, U: ssr, V: rsrs, W: rlrs, X: rsrr,
+Y: lsss, Z: ssrl
+0: ABDOMEN, 1: CIG, 2: VARIX, 3: WHO, 4: TSKS,
+5: YELP, 6: FUZZ, 7: SYKE, 8: JOKY
