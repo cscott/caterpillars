@@ -90,53 +90,45 @@ validity_check is:
     */
 
 bool validate_piece_from(state_t *state, int piece, int var,
-			 uint32_t trie_pos, int piece_pos);
+			 uint32_t trie_pos, int piece_pos, char *buf);
 
 bool validate_piece_from_with(state_t *state, int piece, int var,
 			      struct trie *trie, int piece_pos, int length,
-			      shape_t shape) {
+			      shape_t shape, char *buf) {
     uint32_t mask;
     int i, j;
-    if (state_is_shape_mapped(state, shape)) {
-	// verify that the letter from this state can go here in the word
-	for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
-	    if ((trie->letter_mask.mask & mask) == 0) continue;
-	    j++; // keep track of trie index
-	    if (state->letter_to_shape[i] == shape)
-		// recurse for a bit more thorough checking
-		return validate_piece_from(state, piece, var,
-					   trie->next[j], piece_pos+length);
+    if (!state_is_shape_mapped(state, shape))
+	shape = NO_SHAPE; // ensure the matching letter is not yet mapped
+
+    // verify that the letter from this state can go here in the word
+    for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
+	if ((trie->letter_mask.mask & mask) == 0) continue;
+	j++; // keep track of trie index
+	if (state->letter_to_shape[i] == shape) {
+	    // recurse for a bit more thorough checking
+	    if (validate_piece_from(state, piece, var,
+				    trie->next[j], piece_pos+length,
+				    buf ? (buf+1) : NULL)) {
+		if (buf) *buf='A'+i; // reuse to discover matching words
+		return true;
+	    }
 	}
-	// nope, whatever letter it is, it can't go in the trie.
-    } else {
-	// verify that an *unmapped* letter can go here in the word.
-	for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
-	    if ((trie->letter_mask.mask & mask) == 0) continue;
-	    j++; // keep track of trie index
-	    if (state->letter_to_shape[i] == NO_SHAPE)
-#if 1 /* slow thorough check, or fast? */
-		if (validate_piece_from(state, piece, var,
-					trie->next[j], piece_pos+length))
-		    return true;
-#else
-		return true; // ok, sure.
-#endif
-	}
-	// no unmapped letters can go here in the word.
     }
     return false;
 }
 
 bool validate_piece_from(state_t *state, int piece, int var,
-			 uint32_t trie_pos, int piece_pos) {
+			 uint32_t trie_pos, int piece_pos, char *buf) {
     struct trie *trie = trie_for_index(trie_pos);
     int remaining = piece_length[piece] - piece_pos;
     int max_letters = (remaining+MIN_SEQ_LEN-1)/MIN_SEQ_LEN;
     int min_letters = (remaining+MAX_SEQ_LEN-1)/MAX_SEQ_LEN;
     shape_t shape;
     int i,j;
-    if (remaining == 0) // at the end of the piece, how's the word?
-	return (trie->letter_mask.min_len == 0); // ok if this is a goal state
+    if (remaining == 0) { // at the end of the piece, how's the word?
+	if (buf) *buf='\0';
+	return (trie->letter_mask.min_len == 0); // ok iff this is a goal state
+    }
     // more letters than we can make from this position?
     if (min_letters > trie->letter_mask.max_len) return false;
     // not enough letters than we need to make a word?
@@ -156,12 +148,12 @@ bool validate_piece_from(state_t *state, int piece, int var,
 	    shape = (3*shape) + 3;
 	    for (j=0; j<3; j++)
 		if (validate_piece_from_with(state, piece, var, trie,
-					     piece_pos, i, shape+j))
+					     piece_pos, i, shape+j, buf))
 		    return true; // ok
 	} else {
 	    shape = shape_parse(&pieces[piece][var][piece_pos], i);
 	    if (validate_piece_from_with(state, piece, var, trie,
-					 piece_pos, i, shape))
+					 piece_pos, i, shape, buf))
 		return true; // ok
 	}
     }
@@ -171,7 +163,8 @@ bool validate_piece_from(state_t *state, int piece, int var,
 bool validate_piece(state_t *state, int piece, int var) {
     return validate_piece_from(state, piece, var,
 			       state->trie_pos[piece],
-			       state->piece_pos[piece]);
+			       state->piece_pos[piece],
+			       NULL);
 }
 
 bool validate(state_t *state) {
@@ -189,6 +182,28 @@ bool validate(state_t *state) {
 	if (!saw_good) return false; // no variants are workable
     }
     return true; // ok, this will fly.
+}
+
+/** Re-use validation code to find a matching word given a dictionary. */
+void dump_state(state_t *state) {
+    char buf[256];
+    int i, j;
+
+    assert(sizeof(buf) >= MAX_PIECE_LEN);
+
+    state_snprint(buf, sizeof(buf), state);
+    printf("%s\n", buf);
+
+    for (i=0; i<NUM_PIECES; i++) {
+	printf("%d:", i);
+	for (j=0; j<NUM_VARIANTS; j++) {
+	    if (validate_piece_from(state, i, j, 0, 0, buf)) {
+		printf(" %s", buf);
+	    }
+	}
+	printf((i+1)==NUM_PIECES ? "\n" : ", ");
+    }
+    fflush(stdout);
 }
 
 /*
@@ -250,9 +265,8 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
     pi = state->piece_pos[piece];
     if (pieces[piece][var][pi] == '\0' && trie->letter_mask.min_len == 0) {
 	if (piece+1 >= NUM_PIECES) {
-	    char buf[80];
-	    state_snprint(buf, sizeof(buf), state);
-	    printf("SOLUTION FOUND!\n%s\n", buf);
+	    printf("SOLUTION FOUND!\n");
+	    dump_state(state);
 	} else {
 	    /* do variants of next piece */
 	    for (i=0; i<NUM_VARIANTS; i++)
@@ -289,7 +303,6 @@ void extend_state(heap_t *heap, state_t *state) {
     var = state->current_var;
     extend_piece(heap, state, piece, var);
 }
-
 
 /*
 shape-to-letter mapping is complete trinary tree, stored in flat array?
@@ -340,6 +353,7 @@ void find_solution(void) {
 		   state->current_piece, state->current_var,
 		   state->piece_pos[state->current_piece],
 		   state_score(state));
+	    dump_state(state);
 	}
 #endif
 	extend_state(heap, state);

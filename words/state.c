@@ -74,11 +74,14 @@ state_t *state_add_mapping(state_t *state, char letter, shape_t shape) {
 int state_snprint(char *str, size_t size, state_t *state) {
     char buf[30];
     int i, sz=0;
+    bool first=true;
     /* Print letter mapping */
     for (i=0; i<26; i++) {
 	char l = 'A' + i;
 	if (!state_is_letter_mapped(state, l)) continue;
 	shape_snprint(buf, sizeof(buf), state->letter_to_shape[i]);
-	sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), "%c: %s\n", l, buf);
+	if (first) first = false;
+	else sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), ", ");
+	sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), "%c: %s", l, buf);
     }
 }

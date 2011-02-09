@@ -1,4 +1,5 @@
-CFLAGS=-g
+#CFLAGS=-g
+CFLAGS=-O9 -DNDEBUG
 
 all: main
 
