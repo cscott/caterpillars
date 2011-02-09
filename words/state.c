@@ -44,10 +44,15 @@ bool state_is_letter_mapped(state_t *state, char letter) {
 /** For now, score state based on number of letters mapped, so that we get
  *  the solution with the fewest different shapes/letters first. */
 int state_score(state_t *state) {
-    int i, score = 0;
+    int i, j, score = 0;
+    // reward small alphabets
     for (i=0; i<26; i++)
 	if (state->letter_to_shape[i] != NO_SHAPE)
 	    score++;
+    // reward having gotten closer to completing the whole thing
+    for (i=0; i<9; i++)
+	for (j=0; j<2; j++)
+	    score -= state->piece_pos[i][j];
     return score;
 }
 

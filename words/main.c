@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "state.h"
+#include "heap.h"
 #include "trie.h"
 
 /* state is: (188 bytes)
@@ -77,12 +78,9 @@ bool validate(state_t *state) {
     //XXX
     return true;
 }
-void add_to_heap(state_t *state) {
-    //XXX
-}
 
-void extend_piece_by(state_t *state, struct trie *trie, shape_t shape,
-		     int piece, int var, int len) {
+void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
+		     shape_t shape, int piece, int var, int len) {
     uint32_t mask;
     int i, j;
     state_t *ns;
@@ -104,13 +102,13 @@ void extend_piece_by(state_t *state, struct trie *trie, shape_t shape,
 	ns->piece_pos[piece][var] += len;
 	// check and add new state
 	if (validate(ns))
-	    add_to_heap(ns);
+	    heap_push(heap, ns);
 	else
 	    state_free(ns);
     }
 }
 
-void extend_piece(state_t *state, int piece, int var) {
+void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
     uint32_t trie_pos = state->trie_pos[piece][var];
     struct trie *trie;
     shape_t shape;
@@ -132,12 +130,12 @@ void extend_piece(state_t *state, int piece, int var) {
 	    shape = shape_parse(&pieces[piece][var][pi], i-1);
 	    // three different possible endings
 	    shape = (3*shape) + 3;
-	    extend_piece_by(state, trie, shape+0, piece, var, i/*length*/);
-	    extend_piece_by(state, trie, shape+1, piece, var, i/*length*/);
-	    extend_piece_by(state, trie, shape+2, piece, var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+0, piece, var,i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+1, piece, var,i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+2, piece, var,i/*length*/);
 	} else {
 	    shape = shape_parse(&pieces[piece][var][pi], i);
-	    extend_piece_by(state, trie, shape, piece, var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape, piece, var, i/*length*/);
 	}
     }
 }
@@ -145,11 +143,11 @@ void extend_piece(state_t *state, int piece, int var) {
 // XXX rather than extend all pieces, just extend the 'current' piece,
 // or if that's done, extend the two options for the 'next' piece.
 // (or extend the two options for the first piece, if a new state)
-void extend_state(state_t *state) {
+void extend_state(heap_t *heap, state_t *state) {
     int i,j;
     for (i=0; i<NUM_PIECES; i++) {
 	for (j=0; j<NUM_VARIANTS; j++) {
-	    extend_piece(state, i, j);
+	    extend_piece(heap, state, i, j);
 	}
     }
 }
@@ -208,94 +206,6 @@ alternatively: 26*(10 bits) for letter-to-piece mapping (52 bytes)
 but it's ~26 times slower to look up the piece corresponding to a given letter
 */
 
-typedef struct heap {
-    int alloced, used;
-    state_t *elem[0];
-} heap_t;
-
-heap_t *heap_new(void) {
-    int initial_size = 1024;
-    heap_t *h;
-
-    h = calloc(1, sizeof(*h) + sizeof(state_t *)*initial_size);
-    h->alloced = initial_size;
-    return h;
-}
-void heap_free(heap_t *heap) {
-    int i;
-    for (i=0; i < heap->used; i++)
-	if (heap->elem[i] != NULL)
-	    state_free(heap->elem[i]);
-    free(heap);
-}
-bool heap_is_empty(heap_t *heap) {
-    return heap->used == 0;
-}
-/* 'heap' is a heap at all indices >= startpos, except possibly for pos.  pos
- * is the index of a leaf with a possibly out-of-order value.  Restore the
- * heap invariant. */
-void _siftdown(heap_t *heap, int startpos, int pos) {
-    state_t *newitem = heap->elem[pos], *parent;
-    int parentpos;
-    /* Follow the path to the root, moving parents down until finding a place
-     * newitem fits. */
-    while (pos > startpos) {
-        parentpos = (pos - 1) >> 1;
-        parent = heap->elem[parentpos];
-        if (state_score(newitem) < state_score(parent)) {
-            heap->elem[pos] = parent;
-            pos = parentpos;
-            continue;
-	}
-        break;
-    }
-    heap->elem[pos] = newitem;
-}
-
-void _siftup(heap_t *heap, int pos) {
-    int endpos = heap->used, startpos = pos, childpos, rightpos;
-    state_t *newitem = heap->elem[pos];
-    /** Bubble up the smaller child until hitting a leaf. */
-    childpos = 2*pos + 1;    /* leftmost child position */
-    while (childpos < endpos) {
-        // Set childpos to index of smaller child.
-        rightpos = childpos + 1;
-        if (rightpos < endpos &&
-	    !( state_score(heap->elem[childpos]) <
-	       state_score(heap->elem[rightpos])))
-            childpos = rightpos;
-        /* Move the smaller child up. */
-        heap->elem[pos] = heap->elem[childpos];
-        pos = childpos;
-        childpos = 2*pos + 1;
-    }
-    /* The leaf at pos is empty now.  Put newitem there, and bubble it up
-     * to its final resting place (by sifting its parents down). */
-    heap->elem[pos] = newitem;
-    _siftdown(heap, startpos, pos);
-}
-
-state_t *heap_pop(heap_t *heap) {
-    // pop the first one.
-    state_t *result;
-    assert(!heap_is_empty(heap));
-    result = heap->elem[0];
-    if (heap->used > 1) {
-	heap->elem[0] = heap->elem[heap->used-1];
-	_siftup(heap, 0);
-    }
-    heap->used--;
-    return result;
-}
-void heap_push(heap_t *heap, state_t *state) {
-    if (heap->used >= heap->alloced) {
-	// XXX
-	assert(false);
-    }
-    heap->elem[heap->used++] = state;
-    _siftdown(heap, 0, heap->used-1);
-}
-
 
 void find_solution(void) {
     heap_t *heap = heap_new();
@@ -303,7 +213,7 @@ void find_solution(void) {
     while (!heap_is_empty(heap)) {
 	state_t *state = heap_pop(heap);
 	// XXX examine state -- is it a winner?
-	extend_state(state);
+	extend_state(heap, state);
 	state_free(state);
     }
     heap_free(heap);
