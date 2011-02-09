@@ -19,11 +19,10 @@ set of mapped shapes (for efficiency) (46 bytes) (not necessary to hash)
 shape =  trie index, as computed below = max 362 = 16 bits still.
 */
 
-#define NUM_PIECES 9
-#define NUM_VARIANTS 2
-
 #define MIN_SEQ_LEN 3
 #define MAX_SEQ_LEN 5
+
+#define MAX_PIECE_LEN 30 /* larger than largest piece */
 
 char *pieces[NUM_PIECES][NUM_VARIANTS] = {
     {"lsssslrslsrssrl*", "rlsslsrslrssssr*"},
@@ -37,119 +36,36 @@ char *pieces[NUM_PIECES][NUM_VARIANTS] = {
     {"srsrslrlsrsrsslrl*", "rlrsslslsrlrslsls*"},
 };
 
-shape_t shape_parse(char *shape_str, int len) {
-    shape_t shape = 0;
-    assert (len > 0);
-    goto first;
+int piece_length[NUM_PIECES]; // variants all have same length
+bool can_make[MAX_PIECE_LEN];
 
-    do {
-	shape = (3 * shape) + 3;
-    first:
-	switch (*shape_str) {
-	case 's':
-	    shape += 0; break;
-	case 'r':
-	    shape += 1; break;
-	case 'l':
-	    shape += 2; break;
-	default:
-	    assert(false);
-	}
-	shape_str++; len--;
-    } while (len > 0);
-    return shape;
+static void fill_can_make(int i) {
+    int j;
+    if (i >= MAX_PIECE_LEN) return; // exceeds table boundary
+    if (can_make[i]) return; // already done
+    can_make[i] = true;
+    for (j=MIN_SEQ_LEN; j<=MAX_SEQ_LEN; j++)
+	fill_can_make(i+j);
 }
 
-/*
-do one is:
-  for each piece:
-    if not done:
-      for each possible next shape: <- min, max
-        for each possible next letter in trie:
-           if shape already present in mapping:
-	     if map[letter] != shape: skip
-           add to letter-to-shape mapping (if not already present)
-           update piece's position in trie
-           update piece's position in piece
-           if validity_check:
-             add to heap of states
-*/
-bool validate(state_t *state) {
-    //XXX
-    return true;
-}
-
-void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
-		     shape_t shape, int piece, int var, int len) {
-    uint32_t mask;
-    int i, j;
-    state_t *ns;
-    bool shape_mapped = state_is_shape_mapped(state, shape);
-    /* for each possible next letter in trie: */
-    for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
-	if ((trie->letter_mask.mask & mask) == 0) continue;
-	j++;
-	// is this shape or letter already spoken for?
-	if (shape_mapped) {
-	    if (state->letter_to_shape[i] != shape) continue;
-	} else {
-	    if (state_is_letter_mapped(state, i+'A')) continue;
-	}
-	// ok, new state!
-	ns = state_add_mapping(state, i+'A', shape);
-	// update piece/trie positions.
-	ns->trie_pos[piece][var] = trie->next[j];
-	ns->piece_pos[piece][var] += len;
-	// check and add new state
-	if (validate(ns))
-	    heap_push(heap, ns);
-	else
-	    state_free(ns);
-    }
-}
-
-void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
-    uint32_t trie_pos = state->trie_pos[piece][var];
-    struct trie *trie;
-    shape_t shape;
-    int pi, i;
-    /* Is this a dead piece? */
-    if (trie_pos == TRIE_NO_STATE)
-	return;
-    trie = trie_for_index(trie_pos);
-    /* Is this an end state in the piece? */
-    pi = state->piece_pos[piece][var];
-    if (pieces[piece][var][pi] == '\0' && trie->letter_mask.min_len == 0)
-	return;
-    /* ok, for each possible next shape: */
-    for (i=1; i <= MAX_SEQ_LEN; i++) {
-	if (pieces[piece][var][pi+i] == '\0') break;
-	if (i < MIN_SEQ_LEN) continue;
-	/* special case final '*' */
-	if (pieces[piece][var][pi+i-1] == '*') {
-	    shape = shape_parse(&pieces[piece][var][pi], i-1);
-	    // three different possible endings
-	    shape = (3*shape) + 3;
-	    extend_piece_by(heap, state, trie, shape+0, piece, var,i/*length*/);
-	    extend_piece_by(heap, state, trie, shape+1, piece, var,i/*length*/);
-	    extend_piece_by(heap, state, trie, shape+2, piece, var,i/*length*/);
-	} else {
-	    shape = shape_parse(&pieces[piece][var][pi], i);
-	    extend_piece_by(heap, state, trie, shape, piece, var, i/*length*/);
-	}
-    }
-}
-
-// XXX rather than extend all pieces, just extend the 'current' piece,
-// or if that's done, extend the two options for the 'next' piece.
-// (or extend the two options for the first piece, if a new state)
-void extend_state(heap_t *heap, state_t *state) {
-    int i,j;
+/** Fill in piece length and can_make tables. */
+void piece_init(void) {
+    int i;
     for (i=0; i<NUM_PIECES; i++) {
-	for (j=0; j<NUM_VARIANTS; j++) {
-	    extend_piece(heap, state, i, j);
-	}
+	piece_length[i] = strlen(pieces[i][0]); // variants all have same len
+	assert(piece_length[i] < MAX_PIECE_LEN);
     }
+
+    for (i=0; i<MAX_PIECE_LEN; i++)
+	can_make[i] = false;
+    fill_can_make(0);
+
+#if 0 /* debugging */
+    for (i=0; i<NUM_PIECES; i++)
+	printf("Length of %d: %d\n", i, piece_length[i]);
+    for (i=0; i<MAX_PIECE_LEN; i++)
+	printf("Can make %d: %d\n", i, can_make[i]);
+#endif
 }
 
 /*
@@ -172,9 +88,114 @@ validity_check is:
         or some possible next shape is unmapped, and one of the unmapped letters
         is a possible next letter.
     // XXX would be nice to verify a length constraint, too.
+    */
+bool validate(state_t *state) {
+    int done = 0;
+    //XXX
+    return true;
+}
+
+/*
+do one is:
+  for each piece:
+    if not done:
+      for each possible next shape: <- min, max
+        for each possible next letter in trie:
+           if shape already present in mapping:
+	     if map[letter] != shape: skip
+           add to letter-to-shape mapping (if not already present)
+           update piece's position in trie
+           update piece's position in piece
+           if validity_check:
+             add to heap of states
+*/
+void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
+		     shape_t shape, int piece, int var, int len) {
+    uint32_t mask;
+    int i, j;
+    state_t *ns;
+    bool shape_mapped = state_is_shape_mapped(state, shape);
+    /* Are we going to be able to complete this piece? */
+    if (!can_make[piece_length[piece] - (state->piece_pos[piece] + len)])
+	return;
+    /* for each possible next letter in trie: */
+    for (i=0, j=-1, mask=1; i<26; i++, mask<<=1) {
+	if ((trie->letter_mask.mask & mask) == 0) continue;
+	j++;
+	// is this shape or letter already spoken for?
+	if (shape_mapped) {
+	    if (state->letter_to_shape[i] != shape) continue;
+	} else {
+	    if (state_is_letter_mapped(state, i+'A')) continue;
+	}
+	// ok, new state!
+	ns = state_add_mapping(state, i+'A', shape);
+	// sync piece/var
+	ns->current_piece = piece;
+	ns->current_var = var;
+	// update piece/trie positions.
+	ns->trie_pos[piece] = trie->next[j];
+	ns->piece_pos[piece] += len;
+	// check and add new state
+	if (validate(ns))
+	    heap_push(heap, ns);
+	else
+	    state_free(ns);
+    }
+}
+
+void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
+    uint32_t trie_pos = state->trie_pos[piece];
+    struct trie *trie;
+    shape_t shape;
+    int pi, i;
+    /* Is this a dead piece? */
+    if (trie_pos == TRIE_NO_STATE)
+	return;
+    trie = trie_for_index(trie_pos);
+    /* Is this an end state in the piece? */
+    pi = state->piece_pos[piece];
+    if (pieces[piece][var][pi] == '\0' && trie->letter_mask.min_len == 0) {
+	if (piece+1 >= NUM_PIECES) {
+	    char buf[80];
+	    state_snprint(buf, sizeof(buf), state);
+	    printf("SOLUTION FOUND!\n%s\n", buf);
+	} else {
+	    /* do variants of next piece */
+	    for (i=0; i<NUM_VARIANTS; i++)
+		extend_piece(heap, state, piece+1, i);
+	}
+	return;
+    }
+    /* ok, for each possible next shape: */
+    for (i=MIN_SEQ_LEN; i <= MAX_SEQ_LEN && (pi+i) <= piece_length[piece]; i++){
+	/* special case final '*' */
+	if (pieces[piece][var][pi+i-1] == '*') {
+	    shape = shape_parse(&pieces[piece][var][pi], i-1);
+	    // three different possible endings
+	    shape = (3*shape) + 3;
+	    extend_piece_by(heap, state, trie, shape+0, piece,var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+1, piece,var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+2, piece,var, i/*length*/);
+	} else {
+	    shape = shape_parse(&pieces[piece][var][pi], i);
+	    extend_piece_by(heap, state, trie, shape, piece,var, i/*length*/);
+	}
+    }
+}
+
+// rather than extend all pieces, just extend the 'current' piece,
+// or if that's done, extend the two options for the 'next' piece.
+// (or extend the two options for the first piece, if a new state)
+void extend_state(heap_t *heap, state_t *state) {
+    int piece, var;
+    piece = state->current_piece;
+    var = state->current_var;
+    extend_piece(heap, state, piece, var);
+}
 
 
-
+/*
 shape-to-letter mapping is complete trinary tree, stored in flat array?
 node[0] = 0
 node[1] = 1
@@ -208,11 +229,23 @@ but it's ~26 times slower to look up the piece corresponding to a given letter
 
 
 void find_solution(void) {
+    int best_score = 100;
+    int i;
     heap_t *heap = heap_new();
-    heap_push(heap, state_new());
+    for (i=0; i<NUM_VARIANTS; i++) {
+	heap_push(heap, state_new(0, i));
+    }
     while (!heap_is_empty(heap)) {
 	state_t *state = heap_pop(heap);
-	// XXX examine state -- is it a winner?
+#if 1
+	if (state_score(state) < best_score) {
+	    best_score = state_score(state);
+	    printf("Looking at piece %d var %d pos %d, score %d\n",
+		   state->current_piece, state->current_var,
+		   state->piece_pos[state->current_piece],
+		   state_score(state));
+	}
+#endif
 	extend_state(heap, state);
 	state_free(state);
     }
@@ -232,5 +265,6 @@ int main(int argc, char **argv) {
     printf("a: %d\n", trie_is_word("a"));
     printf("aa: %d\n", trie_is_word("aa"));
 #endif
+    piece_init();
     find_solution();
 }

@@ -1,18 +1,20 @@
 #include <assert.h>
 #include <ctype.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "shape.h"
 #include "state.h"
 
-state_t *state_new(void) {
-    int i, j;
+state_t *state_new(int current_piece, int current_var) {
+    int i;
     state_t *s = malloc(sizeof(*s));
-    for (i=0; i<9; i++) {
-	for (j=0; j<2; j++) {
-	    s->trie_pos[i][j] = 0; // at start of word
-	    s->piece_pos[i][j] = 0; // at start of piece
-	}
+    s->current_piece = current_piece;
+    s->current_var = current_var;
+    for (i=0; i<NUM_PIECES; i++) {
+	s->trie_pos[i] = 0; // at start of word
+	s->piece_pos[i] = 0; // at start of piece
     }
     for (i=0; i<26; i++)
 	s->letter_to_shape[i] = NO_SHAPE;
@@ -50,9 +52,8 @@ int state_score(state_t *state) {
 	if (state->letter_to_shape[i] != NO_SHAPE)
 	    score++;
     // reward having gotten closer to completing the whole thing
-    for (i=0; i<9; i++)
-	for (j=0; j<2; j++)
-	    score -= state->piece_pos[i][j];
+    for (i=0; i<NUM_PIECES; i++)
+	score -= state->piece_pos[i];
     return score;
 }
 
@@ -68,4 +69,16 @@ state_t *state_add_mapping(state_t *state, char letter, shape_t shape) {
     ns->shape_mapped[i] |= (1<<j);
     // ok! (still needs piece/trie positions updated)
     return ns;
+}
+
+int state_snprint(char *str, size_t size, state_t *state) {
+    char buf[30];
+    int i, sz=0;
+    /* Print letter mapping */
+    for (i=0; i<26; i++) {
+	char l = 'A' + i;
+	if (!state_is_letter_mapped(state, l)) continue;
+	shape_snprint(buf, sizeof(buf), state->letter_to_shape[i]);
+	sz += snprintf(str+sz, (sz > size) ? 0 : (size-sz), "%c: %s\n", l, buf);
+    }
 }
