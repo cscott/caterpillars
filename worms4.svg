@@ -1,0 +1,1821 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="612pt"
+   height="792pt"
+   id="svg3730"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="worms4.svg">
+  <defs
+     id="defs3732">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 495 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="765 : 495 : 1"
+       inkscape:persp3d-origin="382.5 : 330 : 1"
+       id="perspective3739" />
+    <inkscape:perspective
+       id="perspective2860"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-0"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-8"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-2"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-10"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-5"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-77"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-59"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-65"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-94"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2860-12"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3106"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4855"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective5766"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4485"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="in"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.6813938"
+     inkscape:cx="508.64715"
+     inkscape:cy="645.41136"
+     inkscape:current-layer="layer1"
+     id="namedview3734"
+     showgrid="false"
+     inkscape:window-width="1004"
+     inkscape:window-height="732"
+     inkscape:window-x="59"
+     inkscape:window-y="67"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3736">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <g
+       id="g4041">
+      <g
+         id="g4022">
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 86.048851,150.33098 0,585.56446"
+           id="path2850" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 678.95115,150.33099 0,585.56444"
+           id="path2850-5" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 604.83834,150.33099 0,585.56445"
+           id="path2850-4" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 567.78194,150.33099 0,585.56445"
+           id="path2850-7" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 530.7256,150.33099 0,585.56445"
+           id="path2850-72" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 493.66917,150.33099 0,585.56445"
+           id="path2850-2" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 456.61277,150.33099 0,585.56445"
+           id="path2850-6" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 419.55639,150.33099 0,585.56445"
+           id="path2850-61" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 382.49999,150.33099 0,585.56445"
+           id="path2850-9" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 345.4436,150.33099 0,585.56445"
+           id="path2850-90" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 271.33083,150.33099 0,585.56445"
+           id="path2850-1" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 234.27443,150.33099 0,585.56445"
+           id="path2850-11" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 197.21803,150.33099 0,585.56445"
+           id="path2850-77" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 160.16165,150.33099 0,585.56445"
+           id="path2850-73" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 123.10525,150.33099 0,585.56445"
+           id="path2850-63" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 641.89472,150.33098 0,585.56446"
+           id="path2850-8" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 308.3872,150.33098 0,585.56446"
+           id="path2850-93" />
+      </g>
+      <g
+         id="g3986">
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71777,739.56436 585.56446,0"
+           id="path2850-0" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,146.66206 585.56444,0"
+           id="path2850-5-3" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,220.77487 585.56445,0"
+           id="path2850-4-0" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,257.83127 585.56445,0"
+           id="path2850-7-4" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,294.88761 585.56445,0"
+           id="path2850-72-4" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,331.94404 585.56445,0"
+           id="path2850-2-4" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,369.00044 585.56445,0"
+           id="path2850-6-4" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,406.05682 585.56445,0"
+           id="path2850-61-7" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,443.11322 585.56445,0"
+           id="path2850-9-6" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,480.16961 585.56445,0"
+           id="path2850-90-3" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,554.28238 585.56445,0"
+           id="path2850-1-1" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,591.33878 585.56445,0"
+           id="path2850-11-7" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,628.39518 585.56445,0"
+           id="path2850-77-5" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,665.45156 585.56445,0"
+           id="path2850-73-9" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71778,702.50796 585.56445,0"
+           id="path2850-63-6" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71777,183.71849 585.56446,0"
+           id="path2850-8-2" />
+        <path
+           style="opacity:1;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 89.71777,517.22601 585.56446,0"
+           id="path2850-93-1" />
+      </g>
+    </g>
+    <rect
+       style="opacity:0.51931326;fill:none;stroke:#000000;stroke-width:1.79999995;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3175"
+       width="36.926628"
+       height="37.078636"
+       x="-719.35956"
+       y="302.12106" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="384.32617"
+       y="78.209061"
+       id="text9789"><tspan
+         sodipodi:role="line"
+         id="tspan9791"
+         x="384.32617"
+         y="78.209061"
+         style="font-weight:bold;-inkscape-font-specification:Bitstream Vera Sans Bold">Caterpillars!</tspan></text>
+    <g
+       id="g5828"
+       transform="translate(-582.59436,53.962264)">
+      <text
+         id="text11405"
+         y="790.44598"
+         x="876.39319"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           id="tspan11413"
+           y="790.44598"
+           x="876.39319"
+           sodipodi:role="line">Answers:</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11424"
+         y="850.70966"
+         x="720.81116"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="850.70966"
+           x="720.81116"
+           id="tspan11426"
+           sodipodi:role="line">ABDOMEN</tspan><tspan
+           id="tspan11428"
+           y="880.70966"
+           x="720.81116"
+           sodipodi:role="line">CHI</tspan><tspan
+           id="tspan11430"
+           y="910.70966"
+           x="720.81116"
+           sodipodi:role="line">GYVE</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11432"
+         y="850.44598"
+         x="938.34045"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="850.44598"
+           x="938.34045"
+           id="tspan11434"
+           sodipodi:role="line">LUTZ</tspan><tspan
+           id="tspan11436"
+           y="880.44598"
+           x="938.34045"
+           sodipodi:role="line">MUJIK</tspan><tspan
+           id="tspan11438"
+           y="910.44598"
+           x="938.34045"
+           sodipodi:role="line">MUST</tspan><tspan
+           id="tspan11440"
+           y="940.44598"
+           x="938.34045"
+           sodipodi:role="line" /></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text11442"
+         y="850.70966"
+         x="1122.8112"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="850.70966"
+           x="1122.8112"
+           id="tspan11444"
+           sodipodi:role="line">QUIPS</tspan><tspan
+           id="tspan11446"
+           y="880.70966"
+           x="1122.8112"
+           sodipodi:role="line">REWAX</tspan><tspan
+           id="tspan11448"
+           y="910.70966"
+           x="1122.8112"
+           sodipodi:role="line">TUFTY</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:47.8052597px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;opacity:0.5622318;fill:#006600;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
+       x="65.841805"
+       y="230.57886"
+       id="text3741"
+       sodipodi:linespacing="100%"
+       transform="scale(1.290333,0.77499376)"><tspan
+         sodipodi:role="line"
+         id="tspan2814"
+         x="65.841805"
+         y="230.57886">QAAHFTRXCNKAFNAF</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2816"
+         x="65.841805"
+         y="278.38409">QOFPVAUSIEYICCWP</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2818"
+         x="65.841805"
+         y="326.18936">USNZJOVQWPSBFHCG</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2820"
+         x="65.841805"
+         y="373.99463">CHQJJFGYSQPEWSEJ</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2822"
+         x="65.841805"
+         y="421.7999">ZQORVUFAIGFYWIRK</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2824"
+         x="65.841805"
+         y="469.60516">XLGGOGPXKFZNECBC</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2826"
+         x="65.841805"
+         y="517.4104">QUKBJZNZWASRNGQC</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2828"
+         x="65.841805"
+         y="565.21564">LLYWGNEXWHQPDTOU</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2830"
+         x="65.841805"
+         y="613.02094">NAIAYWVHBWYCMBTT</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2832"
+         x="65.841805"
+         y="660.82617">DMROGWLFOSFIZQLN</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2834"
+         x="65.841805"
+         y="708.63147">DFIPFFBQFXWBGRFD</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2836"
+         x="65.841805"
+         y="756.43671">YOMUTUECWLLMOSRZ</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2838"
+         x="65.841805"
+         y="804.242">CKIWGELKHGYLWOBZ</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2840"
+         x="65.841805"
+         y="852.04724">VZYWEMFKBJZGULKY</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2842"
+         x="65.841805"
+         y="899.85248">ZOSEHZPOTBPNWEYC</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2844"
+         x="65.841805"
+         y="947.65778">EPRGDXGPQKPNYFSG</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2846"
+         x="65.841805"
+         y="995.46301" /></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Caterpillars"
+     style="display:none">
+    <g
+       transform="matrix(3.6946837,0,0,3.6946837,-254.80752,-597.62344)"
+       id="g4298">
+      <g
+         transform="translate(-386.51176,-22.471614)"
+         id="g4119">
+        <g
+           transform="translate(318.28535,216.73885)"
+           id="g3761">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3763"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 L 30,0 27,5 A 2,2 0 0 0 25,7 2,2 0 0 0 23,5 L 17,5 A 2,2 0 0 0 15,7 2,2 0 0 0 13,5 L 7,5 A 2,2 0 0 0 5,7 2,2 0 0 0 3,5 L -3,5 A 2,2 0 0 0 -5,7 L 0,10 -5,7 A 2,2 0 0 0 -7,5 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 5,3 -5,-3 5,3 -5,3 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 L 35,7 A 2,2 0 0 0 33,5 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3765"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="33"
+             cy="0"
+             r="1"
+             id="circle3767"
+             d="m 34,0 c 0,0.55228475 -0.447715,1 -1,1 -0.552285,0 -1,-0.44771525 -1,-1 0,-0.55228475 0.447715,-1 1,-1 0.552285,0 1,0.44771525 1,1 z"
+             sodipodi:cx="33"
+             sodipodi:cy="0"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3769">T</text>
+          <circle
+             cx="0"
+             cy="13"
+             r="1"
+             id="circle3771"
+             d="m 1,13 c 0,0.552285 -0.44771525,1 -1,1 -0.55228475,0 -1,-0.447715 -1,-1 0,-0.552285 0.44771525,-1 1,-1 0.55228475,0 1,0.447715 1,1 z"
+             sodipodi:cx="0"
+             sodipodi:cy="13"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="13"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3773">H</text>
+          <circle
+             cx="-20"
+             cy="23"
+             r="1"
+             id="circle3775"
+             d="m -19,23 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="-20"
+             sodipodi:cy="23"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="13"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3777">E</text>
+        </g>
+        <g
+           transform="translate(384.56475,302.88267)"
+           id="g3779">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3781"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,5 3,-5 -3,5 -3,-5 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 L 0,0"
+             id="path3783"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="7"
+             cy="-20"
+             r="1"
+             id="circle3785"
+             d="m 8,-20 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="7"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-7"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3787">Q</text>
+          <circle
+             cx="10"
+             cy="-47"
+             r="1"
+             id="circle3789"
+             d="m 11,-47 c 0,0.552285 -0.447715,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="10"
+             sodipodi:cy="-47"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3791">U</text>
+          <circle
+             cx="0"
+             cy="-67"
+             r="1"
+             id="circle3793"
+             d="m 1,-67 c 0,0.552285 -0.44771525,1 -1,1 -0.55228475,0 -1,-0.447715 -1,-1 0,-0.552285 0.44771525,-1 1,-1 0.55228475,0 1,0.447715 1,1 z"
+             sodipodi:cx="0"
+             sodipodi:cy="-67"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="0"
+             y="-57"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3795">I</text>
+          <circle
+             cx="-23"
+             cy="-100"
+             r="1"
+             id="circle3797"
+             d="m -22,-100 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-23"
+             sodipodi:cy="-100"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3799">C</text>
+          <circle
+             cx="-43"
+             cy="-120"
+             r="1"
+             id="circle3801"
+             d="m -42,-120 c 0,0.55228 -0.447715,1 -1,1 -0.552285,0 -1,-0.44772 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-43"
+             sodipodi:cy="-120"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="-117"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3803">K</text>
+        </g>
+        <g
+           transform="translate(414.15369,239.96215)"
+           id="g3805">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3807"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="M 0,0 5,3 A 2,2 0 0 0 7,5 2,2 0 0 0 5,7 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 L 45,7 A 2,2 0 0 0 43,5 2,2 0 0 0 45,3 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 5,3 -5,3 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 15,7 A 2,2 0 0 0 13,5 2,2 0 0 0 15,3 l 0,-6 A 2,2 0 0 0 13,-5 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3809"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="23"
+             cy="30"
+             r="1"
+             id="circle3811"
+             d="m 24,30 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="23"
+             sodipodi:cy="30"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3813">B</text>
+          <circle
+             cx="37"
+             cy="20"
+             r="1"
+             id="circle3815"
+             d="m 38,20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="37"
+             sodipodi:cy="20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="43"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3817">R</text>
+          <circle
+             cx="37"
+             cy="-20"
+             r="1"
+             id="circle3819"
+             d="m 38,-20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="37"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3821">O</text>
+          <circle
+             cx="10"
+             cy="-37"
+             r="1"
+             id="circle3823"
+             d="m 11,-37 c 0,0.552285 -0.447715,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="10"
+             sodipodi:cy="-37"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3825">W</text>
+          <circle
+             cx="-10"
+             cy="-27"
+             r="1"
+             id="circle3827"
+             d="m -9,-27 c 0,0.552285 -0.4477153,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="-10"
+             sodipodi:cy="-27"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="0"
+             y="-27"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3829">N</text>
+        </g>
+        <g
+           transform="translate(472.20668,278.91295)"
+           id="g3831">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3833"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 3,-5 3,5 -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3835"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="17"
+             cy="-20"
+             r="1"
+             id="circle3837"
+             d="m 18,-20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="17"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3839">F</text>
+          <circle
+             cx="17"
+             cy="-60"
+             r="1"
+             id="circle3841"
+             d="m 18,-60 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="17"
+             sodipodi:cy="-60"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3843">O</text>
+          <circle
+             cx="3"
+             cy="-60"
+             r="1"
+             id="circle3845"
+             d="m 4,-60 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="3"
+             sodipodi:cy="-60"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-67"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3847">X</text>
+        </g>
+        <g
+           transform="translate(512.28237,278.91295)"
+           id="g3849">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3851"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3853"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="27"
+             cy="-20"
+             r="1"
+             id="circle3855"
+             d="m 28,-20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="27"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-7"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3857">J</text>
+          <circle
+             cx="30"
+             cy="-47"
+             r="1"
+             id="circle3859"
+             d="m 31,-47 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="30"
+             sodipodi:cy="-47"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3861">U</text>
+          <circle
+             cx="7"
+             cy="-60"
+             r="1"
+             id="circle3863"
+             d="m 8,-60 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="7"
+             sodipodi:cy="-60"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-57"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3865">M</text>
+          <circle
+             cx="20"
+             cy="-83"
+             r="1"
+             id="circle3867"
+             d="m 21,-83 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="20"
+             sodipodi:cy="-83"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3869">P</text>
+          <circle
+             cx="50"
+             cy="-73"
+             r="1"
+             id="circle3871"
+             d="m 51,-73 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="50"
+             sodipodi:cy="-73"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3873">S</text>
+        </g>
+        <g
+           transform="translate(577.8259,207.00378)"
+           id="g3875">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3877"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 5,3 -5,-3 A 2,2 0 0 0 3,25 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,45 A 2,2 0 0 0 5,47 2,2 0 0 0 3,45 2,2 0 0 0 5,43 L 5,37 A 2,2 0 0 0 3,35 2,2 0 0 0 5,33 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 55,7 A 2,2 0 0 0 53,5 2,2 0 0 0 55,3 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3879"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="40"
+             cy="-3"
+             r="1"
+             id="circle3881"
+             d="m 41,-3 c 0,0.5522847 -0.447715,1 -1,1 -0.552285,0 -1,-0.4477153 -1,-1 0,-0.5522847 0.447715,-1 1,-1 0.552285,0 1,0.4477153 1,1 z"
+             sodipodi:cx="40"
+             sodipodi:cy="-3"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3883">O</text>
+          <circle
+             cx="30"
+             cy="23"
+             r="1"
+             id="circle3885"
+             d="m 31,23 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="30"
+             sodipodi:cy="23"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="50"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3887">V</text>
+          <circle
+             cx="10"
+             cy="33"
+             r="1"
+             id="circle3889"
+             d="m 11,33 c 0,0.552285 -0.447715,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="10"
+             sodipodi:cy="33"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3891">E</text>
+          <circle
+             cx="20"
+             cy="47"
+             r="1"
+             id="circle3893"
+             d="m 21,47 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="20"
+             sodipodi:cy="47"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="0"
+             y="53"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3895">R</text>
+        </g>
+        <g
+           transform="translate(664.34293,223.48297)"
+           id="g3897">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3899"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 L 30,0 27,5 A 2,2 0 0 0 25,7 2,2 0 0 0 23,5 L 17,5 A 2,2 0 0 0 15,7 2,2 0 0 0 13,5 L 7,5 A 2,2 0 0 0 5,7 2,2 0 0 0 3,5 L -3,5 A 2,2 0 0 0 -5,7 L 0,10 -5,7 A 2,2 0 0 0 -7,5 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 5,3 -5,-3 5,3 -5,3 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 L 35,7 A 2,2 0 0 0 33,5 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3901"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="33"
+             cy="0"
+             r="1"
+             id="circle3903"
+             d="m 34,0 c 0,0.55228475 -0.447715,1 -1,1 -0.552285,0 -1,-0.44771525 -1,-1 0,-0.55228475 0.447715,-1 1,-1 0.552285,0 1,0.44771525 1,1 z"
+             sodipodi:cx="33"
+             sodipodi:cy="0"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3905">T</text>
+          <circle
+             cx="0"
+             cy="13"
+             r="1"
+             id="circle3907"
+             d="m 1,13 c 0,0.552285 -0.44771525,1 -1,1 -0.55228475,0 -1,-0.447715 -1,-1 0,-0.552285 0.44771525,-1 1,-1 0.55228475,0 1,0.447715 1,1 z"
+             sodipodi:cx="0"
+             sodipodi:cy="13"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="13"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3909">H</text>
+          <circle
+             cx="-20"
+             cy="23"
+             r="1"
+             id="circle3911"
+             d="m -19,23 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="-20"
+             sodipodi:cy="23"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="13"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3913">E</text>
+        </g>
+        <g
+           transform="translate(693.93187,293.89402)"
+           id="g3915">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3917"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 L 0,0"
+             id="path3919"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="17"
+             cy="-30"
+             r="1"
+             id="circle3921"
+             d="m 18,-30 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="17"
+             sodipodi:cy="-30"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-17"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3923">L</text>
+          <circle
+             cx="27"
+             cy="-70"
+             r="1"
+             id="circle3925"
+             d="m 28,-70 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="27"
+             sodipodi:cy="-70"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="-47"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3927">A</text>
+          <circle
+             cx="30"
+             cy="-103"
+             r="1"
+             id="circle3929"
+             d="m 31,-103 c 0,0.55228 -0.447715,1 -1,1 -0.552285,0 -1,-0.44772 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="30"
+             sodipodi:cy="-103"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-87"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3931">Z</text>
+          <circle
+             cx="60"
+             cy="-103"
+             r="1"
+             id="circle3933"
+             d="m 61,-103 c 0,0.55228 -0.447715,1 -1,1 -0.552285,0 -1,-0.44772 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="60"
+             sodipodi:cy="-103"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="50"
+             y="-97"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3935">Y</text>
+        </g>
+        <g
+           transform="translate(740,210)"
+           id="g3937">
+          <path
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5"
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3939" />
+          <path
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5"
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 -3,5 -3,-5 3,5 -3,-5 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 55,7 A 2,2 0 0 0 53,5 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3941" />
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="0"
+             sodipodi:cx="53"
+             cx="53"
+             cy="0"
+             r="1"
+             id="circle3943"
+             d="m 54,0 c 0,0.55228475 -0.447715,1 -1,1 -0.552285,0 -1,-0.44771525 -1,-1 0,-0.55228475 0.447715,-1 1,-1 0.552285,0 1,0.44771525 1,1 z" />
+          <text
+             x="30"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3945">D</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="40"
+             sodipodi:cx="53"
+             cx="53"
+             cy="40"
+             r="1"
+             id="circle3947"
+             d="m 54,40 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="50"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3949">O</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="60"
+             sodipodi:cx="77"
+             cx="77"
+             cy="60"
+             r="1"
+             id="circle3951"
+             d="m 78,60 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="60"
+             y="63"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3953">G</text>
+        </g>
+      </g>
+      <g
+         transform="translate(-4.4943228,-74.905379)"
+         id="g4218">
+        <g
+           transform="translate(-12.423218,415.24074)"
+           id="g3955">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3957"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="M 0,0 5,3 A 2,2 0 0 0 7,5 2,2 0 0 0 5,7 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 15,7 A 2,2 0 0 0 13,5 2,2 0 0 0 15,3 l 0,-6 A 2,2 0 0 0 13,-5 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path3959"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="13"
+             cy="30"
+             r="1"
+             id="circle3961"
+             d="m 14,30 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="13"
+             sodipodi:cy="30"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="13"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3963">H</text>
+          <circle
+             cx="13"
+             cy="70"
+             r="1"
+             id="circle3965"
+             d="m 14,70 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="13"
+             sodipodi:cy="70"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="53"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3967">O</text>
+          <circle
+             cx="40"
+             cy="87"
+             r="1"
+             id="circle3969"
+             d="m 41,87 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="40"
+             sodipodi:cy="87"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="93"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3971">W</text>
+        </g>
+        <g
+           transform="translate(81.584352,520.10827)"
+           id="g3973">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path3975"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 5,3 -5,3 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 L 0,0"
+             id="path3977"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="7"
+             cy="-20"
+             r="1"
+             id="circle3979"
+             d="m 8,-20 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="7"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-7"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3981">Q</text>
+          <circle
+             cx="10"
+             cy="-47"
+             r="1"
+             id="circle3983"
+             d="m 11,-47 c 0,0.552285 -0.447715,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="10"
+             sodipodi:cy="-47"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3985">U</text>
+          <circle
+             cx="0"
+             cy="-67"
+             r="1"
+             id="circle3987"
+             d="m 1,-67 c 0,0.552285 -0.44771525,1 -1,1 -0.55228475,0 -1,-0.447715 -1,-1 0,-0.552285 0.44771525,-1 1,-1 0.55228475,0 1,0.447715 1,1 z"
+             sodipodi:cx="0"
+             sodipodi:cy="-67"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="0"
+             y="-57"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3989">I</text>
+          <circle
+             cx="-23"
+             cy="-100"
+             r="1"
+             id="circle3991"
+             d="m -22,-100 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-23"
+             sodipodi:cy="-100"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3993">C</text>
+          <circle
+             cx="-43"
+             cy="-120"
+             r="1"
+             id="circle3995"
+             d="m -42,-120 c 0,0.55228 -0.447715,1 -1,1 -0.552285,0 -1,-0.44772 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-43"
+             sodipodi:cy="-120"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-20"
+             y="-117"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text3997">K</text>
+          <circle
+             cx="-70"
+             cy="-137"
+             r="1"
+             id="circle3999"
+             d="m -69,-137 c 0,0.55228 -0.447715,1 -1,1 -0.552285,0 -1,-0.44772 -1,-1 0,-0.55228 0.447715,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-70"
+             sodipodi:cy="-137"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-60"
+             y="-127"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4001">L</text>
+          <circle
+             cx="-100"
+             cy="-137"
+             r="1"
+             id="circle4003"
+             d="m -99,-137 c 0,0.55228 -0.447715,1 -1,1 -0.55228,0 -1,-0.44772 -1,-1 0,-0.55228 0.44772,-1 1,-1 0.552285,0 1,0.44772 1,1 z"
+             sodipodi:cx="-100"
+             sodipodi:cy="-137"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="-90"
+             y="-137"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4005">Y</text>
+        </g>
+        <g
+           transform="translate(77.45269,407.00378)"
+           id="g4007">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path4009"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,-5 -3,5 3,-5 3,5 -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 55,7 A 2,2 0 0 0 53,5 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path4011"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="53"
+             cy="0"
+             r="1"
+             id="circle4013"
+             d="m 54,0 c 0,0.55228475 -0.447715,1 -1,1 -0.552285,0 -1,-0.44771525 -1,-1 0,-0.55228475 0.447715,-1 1,-1 0.552285,0 1,0.44771525 1,1 z"
+             sodipodi:cx="53"
+             sodipodi:cy="0"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="3"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4015">D</text>
+          <circle
+             cx="43"
+             cy="40"
+             r="1"
+             id="circle4017"
+             d="m 44,40 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="43"
+             sodipodi:cy="40"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4019">A</text>
+          <circle
+             cx="60"
+             cy="57"
+             r="1"
+             id="circle4021"
+             d="m 61,57 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="60"
+             sodipodi:cy="57"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="63"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4023">F</text>
+          <circle
+             cx="93"
+             cy="60"
+             r="1"
+             id="circle4025"
+             d="m 94,60 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="93"
+             sodipodi:cy="60"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="80"
+             y="63"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4027">T</text>
+        </g>
+        <g
+           transform="translate(153.48297,501.38456)"
+           id="g4029">
+          <path
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path4031"
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5" />
+          <path
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -3,5 3,-5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 5,3 -5,3 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,5 -3,-5 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path4033"
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5" />
+          <circle
+             cx="27"
+             cy="-20"
+             r="1"
+             id="circle4035"
+             d="m 28,-20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="27"
+             sodipodi:cy="-20"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-7"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4037">J</text>
+          <circle
+             cx="30"
+             cy="-47"
+             r="1"
+             id="circle4039"
+             d="m 31,-47 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="30"
+             sodipodi:cy="-47"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="-37"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4041">U</text>
+          <circle
+             cx="7"
+             cy="-60"
+             r="1"
+             id="circle4043"
+             d="m 8,-60 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+             sodipodi:cx="7"
+             sodipodi:cy="-60"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="20"
+             y="-57"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4045">M</text>
+          <circle
+             cx="20"
+             cy="-83"
+             r="1"
+             id="circle4047"
+             d="m 21,-83 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="20"
+             sodipodi:cy="-83"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="10"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4049">P</text>
+          <circle
+             cx="30"
+             cy="-63"
+             r="1"
+             id="circle4051"
+             d="m 31,-63 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="30"
+             sodipodi:cy="-63"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="30"
+             y="-67"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4053">I</text>
+          <circle
+             cx="50"
+             cy="-73"
+             r="1"
+             id="circle4055"
+             d="m 51,-73 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="50"
+             sodipodi:cy="-73"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="40"
+             y="-67"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4057">N</text>
+          <circle
+             cx="70"
+             cy="-97"
+             r="1"
+             id="circle4059"
+             d="m 71,-97 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+             sodipodi:cx="70"
+             sodipodi:cy="-97"
+             sodipodi:rx="1"
+             sodipodi:ry="1"
+             style="fill:#000000" />
+          <text
+             x="70"
+             y="-77"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4061">G</text>
+        </g>
+        <g
+           transform="translate(240,410)"
+           id="g4063">
+          <path
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5"
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path4065" />
+          <path
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5"
+             d="m 0,0 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 3,-5 -3,5 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 A 2,2 0 0 0 3,35 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 L 7,55 A 2,2 0 0 0 5,57 2,2 0 0 0 3,55 2,2 0 0 0 5,53 L 5,47 A 2,2 0 0 0 3,45 2,2 0 0 0 5,43 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 35,7 A 2,2 0 0 0 33,5 l -3,-5 3,5 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 L 0,0"
+             id="path4067" />
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="0"
+             sodipodi:cx="33"
+             cx="33"
+             cy="0"
+             r="1"
+             id="circle4069"
+             d="m 34,0 c 0,0.55228475 -0.447715,1 -1,1 -0.552285,0 -1,-0.44771525 -1,-1 0,-0.55228475 0.447715,-1 1,-1 0.552285,0 1,0.44771525 1,1 z" />
+          <text
+             x="20"
+             y="-7"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4071">Z</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="20"
+             sodipodi:cx="43"
+             cx="43"
+             cy="20"
+             r="1"
+             id="circle4073"
+             d="m 44,20 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="30"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4075">E</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="43"
+             sodipodi:cx="10"
+             cx="10"
+             cy="43"
+             r="1"
+             id="circle4077"
+             d="m 11,43 c 0,0.552285 -0.447715,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="20"
+             y="33"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4079">B</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="57"
+             sodipodi:cx="20"
+             cx="20"
+             cy="57"
+             r="1"
+             id="circle4081"
+             d="m 21,57 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="0"
+             y="63"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4083">R</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="67"
+             sodipodi:cx="60"
+             cx="60"
+             cy="67"
+             r="1"
+             id="circle4085"
+             d="m 61,67 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="40"
+             y="73"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4087">A</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="77"
+             sodipodi:cx="90"
+             cx="90"
+             cy="77"
+             r="1"
+             id="circle4089"
+             d="m 91,77 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="80"
+             y="73"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4091">S</text>
+        </g>
+        <g
+           transform="translate(340,410)"
+           id="g4093">
+          <path
+             style="fill:#fefde3;stroke:#000000;stroke-width:0.5"
+             d="m -5,0 0,3 a 2,2 0 0 0 2,2 L 3,5 A 2,2 0 0 0 5,3 L 0,0 5,-3 A 2,2 0 0 0 3,-5 l -6,0 a 2,2 0 0 0 -2,2 z M 0,0 -1,-1 -3,1 -4,0"
+             id="path4095" />
+          <path
+             style="fill:#77ff88;stroke:#000000;stroke-width:0.5"
+             d="M 0,0 5,3 A 2,2 0 0 0 7,5 2,2 0 0 0 5,7 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 5,3 -5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 2,2 0 0 0 -2,2 l 0,6 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l -5,-3 5,3 -5,-3 5,-3 -5,3 5,-3 a 2,2 0 0 0 -2,-2 l -6,0 a 2,2 0 0 0 -2,2 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 5,-3 -5,3 a 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 2,2 0 0 0 2,2 l 6,0 a 2,2 0 0 0 2,-2 l 0,-6 a 2,2 0 0 0 -2,-2 2,2 0 0 0 2,-2 L 15,7 A 2,2 0 0 0 13,5 2,2 0 0 0 15,3 l 0,-6 A 2,2 0 0 0 13,-5 L 7,-5 A 2,2 0 0 0 5,-3 L 0,0"
+             id="path4097" />
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="23"
+             sodipodi:cx="-10"
+             cx="-10"
+             cy="23"
+             r="1"
+             id="circle4099"
+             d="m -9,23 c 0,0.552285 -0.4477153,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.5522847,0 1,0.447715 1,1 z" />
+          <text
+             x="10"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4101">V</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="33"
+             sodipodi:cx="-30"
+             cx="-30"
+             cy="33"
+             r="1"
+             id="circle4103"
+             d="m -29,33 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="-30"
+             y="23"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4105">E</text>
+          <circle
+             style="fill:#000000"
+             sodipodi:ry="1"
+             sodipodi:rx="1"
+             sodipodi:cy="47"
+             sodipodi:cx="-30"
+             cx="-30"
+             cy="47"
+             r="1"
+             id="circle4107"
+             d="m -29,47 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z" />
+          <text
+             x="-40"
+             y="43"
+             style="font-size:8px;text-anchor:middle"
+             font-size="8"
+             id="text4109">X</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

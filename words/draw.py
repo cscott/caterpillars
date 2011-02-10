@@ -197,7 +197,7 @@ def path(pat, direction):
     else:
         assert false
 
-def path_egg(pat, direction):
+def path_egg(direction):
     d = direction
     # 0,0 is the center of the egg; blocks are 10 units on a side,
     # rectangles are rounded with rx/ry = 2
@@ -208,20 +208,37 @@ def path_egg(pat, direction):
     p += "l" + Direction.rotates(d, 0, -6)
     p += "a 2,2 0 0,0" + Direction.rotates(d, -2, -2)
     # now we're at start of mouth
-    p += path_halfmouth(pat, direction)
+    p += "l" + Direction.rotates(d, -3, 5)
+    p += "l" + Direction.rotates(d, -3, -5)
     # now we're at close of mouth
     p += "a 2,2 0 0,0" + Direction.rotates(d, -2, 2)
     p += "l" + Direction.rotates(d, 0, 6)
     p += "a 2,2 0 0,0" + Direction.rotates(d, 2, 2)
-    p += "L" + Direction.rotates(d, 0, 5)
+    p += "Z"
+    # move back and make a bit of a crack
+    p += "M" + Direction.rotates(d, 0, 0)
+    # little bit of a crack
+    p += "l" + Direction.rotates(d, -1, 1)
+    p += "l" + Direction.rotates(d, 2, 2)
+    p += "l" + Direction.rotates(d, -1, 1)
     return p
 
 def draw_word(word):
     pat = pat_from_word(word, sep=True)
     direction = Direction.EAST
-    # draw first half of the tail
-    p = path_egg(pat, direction)
-    p = "<path d=\"%s\" fill=\"green\" stroke=\"black\" stroke-width=\".5\" />" % p
+    p = ''
+    # draw the egg
+    pp = path_egg(direction)
+    p += "<path d=\"%s\" fill=\"#fefde3\" stroke=\"black\" stroke-width=\".5\" />"\
+        % pp
+    # draw path
+    pp  = "M" + Direction.rotates(direction, 0, 0)
+    pp += "l" + Direction.rotates(direction, 3, -5)
+    pp += path(pat, direction)
+    pp += "l" + Direction.rotates(direction, 3, 5)
+    p += "<path d=\"%s\" fill=\"#7f8\" stroke=\"black\" stroke-width=\".5\" />"\
+        % pp
+
     i = 0
     for c in word:
         j = pat.find('|', i)

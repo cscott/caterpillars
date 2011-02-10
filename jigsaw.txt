@@ -260,3 +260,13 @@ R: srlrl, S: lrls, T: srsrs, U: ssr, V: rsrs, W: rlrs, X: rsrr,
 Y: lsss, Z: ssrl
 0: ABDOMEN, 1: CIG, 2: VARIX, 3: WHO, 4: TSKS,
 5: YELP, 6: FUZZ, 7: SYKE, 8: JOKY
+-------
+0: ABDOMEN, 1: CHI, 2: PESKY, 3: VIS, 4: LEXIS, 5: JERK, 6: FUZZ, 7: SWIG, 8: QU
+IT
+0: ABDOMEN, 1: CHI, 2: RELAX, 3: JIG, 4: TWIG, 5: SKIM, 6: FUZZ, 7: GYVE, 8: QUI
+P
+0: ABDOMEN, 1: CHI, 2: RELAX, 3: JIG, 4: TWIG, 5: SKIM, 6: PUFF, 7: GYVE, 8: QUI
+Z
+0: ABDOMEN, 1: CUT, 2: REWAX, 3: CHI, 4: TSKS, 5: PLUM, 6: FIZZ, 7: GYVE, 8: JOK
+Y
+0: ABDOMEN, 1: WHY, 2: VELAR, 3: GIT, 4: SKIT, 5: ZING, 6: FUJI, 7: CRUX, 8: QUIP
