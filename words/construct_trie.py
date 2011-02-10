@@ -2,7 +2,9 @@
 from __future__ import with_statement
 import os
 
-WORDFILE='enable1.txt'
+#WORDFILE='enable1.txt' # scrabble dictionary
+#WORDFILE='looking-words' # all words in Looking Glass, being generous
+WORDFILE='looking-words-2' # "Looking glass numbered" words
 NUMBER='NUMBER'
 GOAL='GOAL'
 MAXLEN='MAXLEN'

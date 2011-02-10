@@ -338,8 +338,8 @@ but it's ~26 times slower to look up the piece corresponding to a given letter
 
 
 void find_solution(void) {
-    int best_score = 100;
-    int i;
+    int best_score = 0;
+    int i, score;
     heap_t *heap = heap_new();
     for (i=0; i<NUM_VARIANTS; i++) {
 	heap_push(heap, state_new(0, i));
@@ -347,12 +347,14 @@ void find_solution(void) {
     while (!heap_is_empty(heap)) {
 	state_t *state = heap_pop(heap);
 #if 1
-	if (state_score(state) < best_score) {
-	    best_score = state_score(state);
-	    printf("Looking at piece %d var %d pos %d, score %d\n",
+	for (i=0, score=0; i<NUM_PIECES; i++)
+	    score += state->piece_pos[i];
+	if (score > best_score) {
+	    best_score = score;
+	    printf("Looking at piece %d var %d pos %d, score %d/%d\n",
 		   state->current_piece, state->current_var,
 		   state->piece_pos[state->current_piece],
-		   state_score(state));
+		   score, state_score(state));
 	    dump_state(state);
 	}
 #endif

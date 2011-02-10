@@ -51,6 +51,7 @@ int state_score(state_t *state) {
     for (i=0; i<26; i++)
 	if (state->letter_to_shape[i] != NO_SHAPE)
 	    score++;
+    score *= 5;
     // reward having gotten closer to completing the whole thing
     for (i=0; i<NUM_PIECES; i++)
 	score -= state->piece_pos[i];
