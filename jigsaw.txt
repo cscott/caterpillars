@@ -270,3 +270,22 @@ Z
 0: ABDOMEN, 1: CUT, 2: REWAX, 3: CHI, 4: TSKS, 5: PLUM, 6: FIZZ, 7: GYVE, 8: JOK
 Y
 0: ABDOMEN, 1: WHY, 2: VELAR, 3: GIT, 4: SKIT, 5: ZING, 6: FUJI, 7: CRUX, 8: QUIP
+
+-----
+Looking glass words:
+
+A number of similar solutions, with variants because KMPY are only
+used at the end of words (and QXZ aren't used at all)
+
+A: srlss, B: lslrl, C: sssrl, D: lrsss, E: rlrs, F: ssrss, G: srss, H: ssss, I: rssss, J: rlssl, K: lssrl, L: rlrsl, M: sss, N: srlr, O: ssr, P: slrll, R: lslss, S: rsrs, T: rsss, U: srs, V: slsls, W: rslrs, Y: srl
+0: AWHILE, 1: EGG, 2: SANDS, 3: CUP, 4: EVER, 5: JUDY, 6: BOOK, 7: TRUE, 8: FROM
+
+L(911) = TRUE
+L(1120) = FROM
+L(2693) = BOOK
+L(2930) = AWHILE
+L(3052) = EVER
+L(9804) = SANDS
+L(14694) = EGG
+L(19182) = CUP
+L(20979) = JUDY

@@ -1,26 +1,47 @@
 #!/usr/bin/python
 import itertools
 
-alphabet={
-    'A': 'srlss', 'B': 'rslrs', 'C': 'rlrss', 'D': 'ssssr', 'E': 'slr',
-    'F': 'slss', 'G': 'lrlsl', 'H': 'rsss', 'I': 'rsl', 'J': 'slsrl',
-    'K': 'slsr', 'L': 'lssrl', 'M': 'rlr', 'N': 'lrs', 'O': 'ssss',
-    'P': 'srs', 'Q': 'lss', 'R': 'lslss', 'S': 'srls', 'T': 'ssr',
-    'U': 'ssl', 'V': 'rsrss', 'W': 'lrlss', 'X': 'lsls',
-    'Y': 'sss', 'Z': 'lrsrs'
-    }
-rev_alpha = dict((y,x) for x,y in alphabet.items())
+WORDFILE='enable1.txt'
 
-words = [
-    'ABDOMEN','CHI','REWAX','MUST','MUJIK','QUIPS','LUTZ','GYVE','TUFTY',
-    'THE', 'QUICK', 'BROWN', 'FOX', 'JUMPS', 'OVER', 'THE', 'LAZY', 'DOG',
-    'HOW', 'QUICKLY', 'DAFT','JUMPING','ZEBRAS','VEX'
+if False:
+    # first version
+    alphabet={
+        'A': 'srlss', 'B': 'rslrs', 'C': 'rlrss', 'D': 'ssssr', 'E': 'slr',
+        'F': 'slss', 'G': 'lrlsl', 'H': 'rsss', 'I': 'rsl', 'J': 'slsrl',
+        'K': 'slsr', 'L': 'lssrl', 'M': 'rlr', 'N': 'lrs', 'O': 'ssss',
+        'P': 'srs', 'Q': 'lss', 'R': 'lslss', 'S': 'srls', 'T': 'ssr',
+        'U': 'ssl', 'V': 'rsrss', 'W': 'lrlss', 'X': 'lsls',
+        'Y': 'sss', 'Z': 'lrsrs'
+        }
+    words = [
+        'ABDOMEN','CHI','REWAX','MUST','MUJIK','QUIPS','LUTZ','GYVE','TUFTY',
+        ]
+elif True:
+    # second version, only words from Alice
+    WORDFILE='looking-words-2'
+    alphabet = { # KMPY can change end; QXZ are completely free
+        'A': 'srlss', 'B': 'lslrl', 'C': 'sssrl', 'D': 'lrsss', 'E': 'rlrs',
+        'F': 'ssrss', 'G': 'srss', 'H': 'ssss', 'I': 'rssss', 'J': 'rlssl',
+        'K': 'lssrl', 'L': 'rlrsl', 'M': 'sss', 'N': 'srlr', 'O': 'ssr',
+        'P': 'slrls', 'Q': 'lss', 'R': 'lslss', 'S': 'rsrs', 'T': 'rsss',
+        'U': 'srs', 'V': 'slsls', 'W': 'rslrs', 'X': 'rsssl',
+        'Y': 'srl', 'Z': 'lrsrs'
+        }
+    words = [
+        'AWHILE', 'EGG', 'SANDS', 'CUP', 'EVER', 'JUDY', 'BOOK', 'TRUE', 'FROM'
+        ]
+
+words += [
+    '', 'THE', 'QUICK', 'BROWN', 'FOX', 'JUMPS', 'OVER', 'THE', 'LAZY', 'DOG',
+    '', 'HOW', 'QUICKLY', 'DAFT','JUMPING','ZEBRAS','VEX',
+    '', 'CWM', 'FJORD', 'BANK', 'GLYPHS', 'VEXT', 'QUIZ',
     ]
 
-
-WORDFILE='enable1.txt'
 MIN_SEQ_LEN=3
 MAX_SEQ_LEN=5
+
+rev_alpha = dict((y,x) for x,y in alphabet.items())
+
 DICT=None
 def read_dict():
     global DICT
@@ -277,11 +298,12 @@ def draw_words(words):
     # now print the words
     x,y=40,10
     for w in words:
-        p += "<g transform=\"translate(%d,%d)\">" % (x,y)
-        p += draw_word(w)
-        p += "</g>\n"
-        x += 100
-        if x > 1000:
+        if w:
+            p += "<g transform=\"translate(%d,%d)\">" % (x,y)
+            p += draw_word(w)
+            p += "</g>\n"
+            x += 100
+        if x > 1000 or not w:
             x = 40
             y += 200
 
