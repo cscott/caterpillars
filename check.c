@@ -7,6 +7,30 @@
 #ifdef USE_PIECE_3
 # include "pieces3.h"
 #endif
+#ifdef USE_PIECE_5
+# include "pieces5.h"
+#endif
+#ifdef USE_PIECE_6
+# include "pieces6.h"
+#endif
+#ifdef USE_PIECE_7
+# include "pieces7.h"
+#endif
+#ifdef USE_PIECE_9
+# include "pieces9.h"
+#endif
+#ifdef USE_PIECE_10
+# include "pieces10.h"
+#endif
+#ifdef USE_PIECE_11
+# include "pieces11.h"
+#endif
+#ifdef USE_PIECE_12
+# include "pieces12.h"
+#endif
+#ifdef USE_PIECE_13
+# include "pieces13.h"
+#endif
 
 #include <stdio.h>
 #include <string.h>
