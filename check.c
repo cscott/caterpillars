@@ -31,6 +31,21 @@
 #ifdef USE_PIECE_13
 # include "pieces13.h"
 #endif
+#ifdef USE_PIECE_14
+# include "pieces14.h"
+#endif
+#ifdef USE_PIECE_15
+# include "pieces15.h"
+#endif
+#ifdef USE_PIECE_16
+# include "pieces16.h"
+#endif
+#ifdef USE_PIECE_17
+# include "pieces17.h"
+#endif
+#ifdef USE_PIECE_18
+# include "pieces18.h"
+#endif
 
 #include <stdio.h>
 #include <string.h>
