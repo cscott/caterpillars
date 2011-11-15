@@ -10,15 +10,18 @@ random.seed(42)
 MIN_SEQ_LEN=3
 MAX_SEQ_LEN=4
 
-patterns=[('*lsssslrslsrssrl', '*rlsslsrslrssssr'),
-          ('*sssrlsrsslrl', '*rlrsslsrlsss'),
-          ('*rssslslsssrsrlr', '*lrlslsssrsrsssl'),
-          ('*srlssrslrsssssrssssrlrslrlr', '*lrlrslrlsssslssssslrslssrls'),
-          ('*sslssssrsrsslss', '*ssrsslslssssrss'),
-          ('*rlrssrsssrs', '*slssslsslrl'),
-          ('*lslssslrlrlsssrlsslsl', '*rsrssrlsssrlrlrsssrsr'),
-          ('*lssrlsslssrlrsr', '*lslrlssrssrlssr'),
-          ('*srsrslrlsrsrsslrl', '*rlrsslslsrlrslsls')]
+# original ANSWER patterns
+# patterns=[('*lsssslrslsrssrl', '*rlsslsrslrssssr'),
+#           ('*sssrlsrsslrl', '*rlrsslsrlsss'),
+#           ('*rssslslsssrsrlr', '*lrlslsssrsrsssl'),
+#           ('*srlssrslrsssssrssssrlrslrlr', '*lrlrslrlsssslssssslrslssrls'),
+#           ('*sslssssrsrsslss', '*ssrsslslssssrss'),
+#           ('*rlrssrsssrs', '*slssslsslrl'),
+#           ('*lslssslrlrlsssrlsslsl', '*rsrssrlsssrlrlrsssrsr'),
+#           ('*lssrlsslssrlrsr', '*lslrlssrssrlssr'),
+#           ('*srsrslrlsrsrsslrl', '*rlrsslslsrlrslsls')]
+# new WIGS patterns
+patterns=[('*sslssssslrl', '*rlrsssssrss'), ('*rslssslssrl', '*rlssrsssrsl'), ('*lsssrslrss', '*sslrslsssr'), ('*sssrlrssssss', '*sssssslrlsss'), ('*lslssslrlrlsssrlrsslsrl', '*rlsrsslrlsssrlrlrsssrsr'), ('*ssrsrslssr', '*lssrslslss'), ('*lrsrsssrslslrlrsr', '*lslrlrsrslssslslr'), ('*rlsssssrslrsssss', '*ssssslrslsssssrl'), ('*lrssrlsslrls', '*srlrssrlsslr'), ('*lssslrlss', '*ssrlrsssr'), ('*srsssrslrssssrsssssrs', '*slssssslsssslrslsssls'), ('*rsrssrssssrlrsrlsrlr', '*lrlsrlslrlsssslsslsl'), ('*rlrssrsssrsl', '*rslssslsslrl')]
 
 flatpat = [p[1:] for p in itertools.chain(*patterns)]
 

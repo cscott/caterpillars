@@ -51,16 +51,17 @@ struct word_mask {
     union letter_mask mask[15];
 };
 typedef void (*match_cb_func)(char *buf, int word_len);
-void trie_match_mask(struct word_mask *word_mask, match_cb_func match_cb);
-void trie_print_word_mask(struct word_mask *word_mask);
+void trie_match_mask(uint32_t *which_trie,
+		     struct word_mask *word_mask, match_cb_func match_cb);
+void trie_print_word_mask(uint32_t *which_trie, struct word_mask *word_mask);
 #endif
 
 
-bool trie_is_word(char *word);
-void trie_print_all_words();
-struct trie *trie_for_index(uint32_t index);
+bool trie_is_word(uint32_t *which_trie, char *word);
+void trie_print_all_words(uint32_t *which_trie);
+struct trie *trie_for_index(uint32_t *which_trie, uint32_t index);
 
-void trie_is_goal_state(uint32_t trie_pos);
+void trie_is_goal_state(uint32_t *which_trie, uint32_t trie_pos);
 
 
 #endif /* TRIE_H_INCLUDED */

@@ -1,7 +1,7 @@
 #include <stdint.h>
 #define MAX_WORD_LEN 20
 #define MIN_WORD_LEN 5
-uint32_t trie_data[] = {
+uint32_t ans_trie_data[] = {
 4114538111UL,
 20UL,
 58UL,

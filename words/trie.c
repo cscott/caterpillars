@@ -7,11 +7,9 @@
 #include "trie.h"
 #define MAX_WORD_LEN 28
 
-extern uint32_t trie_data[];
-
-static bool check_from(unsigned index, char *rest) {
-    struct trie *trie = (struct trie *) &trie_data[index];
-    unsigned mask = trie_data[index], desired;
+static bool check_from(uint32_t *which_trie, unsigned index, char *rest) {
+    struct trie *trie = (struct trie *) &which_trie[index];
+    unsigned mask = which_trie[index], desired;
     char next = *rest;
 
     if (next == '\0')
@@ -27,16 +25,17 @@ static bool check_from(unsigned index, char *rest) {
 	index++;
 	mask &= (mask - 1); // clear least significant set bit
 	if ((mask & desired) == 0)
-	    return check_from(trie_data[index], rest+1);
+	    return check_from(which_trie, which_trie[index], rest+1);
     }
 }
 
-bool trie_is_word(char *word) {
-    return check_from(0, word);
+bool trie_is_word(uint32_t *which_trie, char *word) {
+    return check_from(which_trie, 0, word);
 }
 
-static void print_all_words_from(unsigned index, char *buf, int bufidx) {
-    struct trie *trie = trie_for_index(index);
+static void print_all_words_from(uint32_t *which_trie, unsigned index,
+				 char *buf, int bufidx) {
+    struct trie *trie = trie_for_index(which_trie, index);
     unsigned mask = trie->letter_mask.mask, desired;
     int i, j;
 
@@ -48,25 +47,26 @@ static void print_all_words_from(unsigned index, char *buf, int bufidx) {
 	desired = 1 << i;
 	if (mask & desired) {
 	    buf[bufidx] = 'a' + i;
-	    print_all_words_from(trie->next[j++], buf, bufidx+1);
+	    print_all_words_from(which_trie, trie->next[j++], buf, bufidx+1);
 	}
     }
 }
-void trie_print_all_words(void) {
+void trie_print_all_words(uint32_t *which_trie) {
     char buf[MAX_WORD_LEN+1];
-    print_all_words_from(0, buf, 0);
+    print_all_words_from(which_trie, 0, buf, 0);
 }
-struct trie *trie_for_index(uint32_t index) {
-    return (struct trie *) &trie_data[index];
+struct trie *trie_for_index(uint32_t *which_trie, uint32_t index) {
+    return (struct trie *) &which_trie[index];
 }
 
 #if 0
 /** Support search. */
-static void match_mask_from(int word_len, union letter_mask *mask,
+static void match_mask_from(uint32_t *which_trie,
+			    int word_len, union letter_mask *mask,
 			    unsigned index, char *buf, int bufidx,
 			    match_cb_func match_cb) {
-    struct trie *trie = (struct trie *) &trie_data[index];
-    unsigned trie_mask = trie_data[index], desired;
+    struct trie *trie = (struct trie *) &which_trie[index];
+    unsigned trie_mask = which_trie[index], desired;
     int i;
     if (trie->letter_mask.min_len==0) {
 	buf[bufidx] = '\0'; // convenience
@@ -78,23 +78,25 @@ static void match_mask_from(int word_len, union letter_mask *mask,
 	    index++;
 	    if (desired & mask->mask) {
 		buf[bufidx] = 'A' + i;
-		match_mask_from(word_len, mask+1, trie_data[index],
+		match_mask_from(word_len, mask+1, which_trie[index],
 				buf, bufidx+1, match_cb);
 	    }
 	}
     }
 }
 
-void trie_match_mask(struct word_mask *word_mask, match_cb_func match_cb) {
+void trie_match_mask(uint32_t *which_trie,
+		     struct word_mask *word_mask, match_cb_func match_cb) {
     char buf[16];
     if (word_mask->word_len < 2 || word_mask->word_len > 15) return;
-    match_mask_from(word_mask->word_len, word_mask->mask,
-		    trie_data[word_mask->word_len-1], buf, 0,
+    match_mask_from(which_trie,
+		    word_mask->word_len, word_mask->mask,
+		    which_trie[word_mask->word_len-1], buf, 0,
 		    match_cb);
 }
 
 #define ALL_LETTERS 0x3FFFFFF
-void trie_print_word_mask(struct word_mask *word_mask) {
+void trie_print_word_mask(uint32_t *which_trie, struct word_mask *word_mask) {
     int i, j, run;
     unsigned lm;
     for (i=0; i < word_mask->word_len; i++) {

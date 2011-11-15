@@ -2,9 +2,10 @@
 from __future__ import with_statement
 import png
 import random
+import sys
 from contextlib import contextmanager
 
-MAX_PIECES=10
+MAX_PIECES=20
 MIN_PIECE_SIZE=15
 MAX_PIECE_SIZE=30
 random.seed(42)
@@ -171,7 +172,7 @@ def read(filename):
     """Read in the answer template as a black+white+transparent PNG file"""
     with open(filename, 'rb') as f:
         width, height, pixels, metadata = png.Reader(file=f).asRGBA8()
-        assert width == 16 and height==16
+        #assert width == 32 and height==16
         def pixel(r,g,b,a):
             return Pixel.UNKNOWN if a < 128 else \
                    Pixel.SOLID if r > 128 else Pixel.VOID
@@ -188,6 +189,7 @@ def check_best_solution(img, pieces):
     best_gaps = img.solids_left
     print "Best so far:", best_gaps#, find_smallest(img, 0, 0, len(pieces)+1)
     print_solution(img, pieces)
+    sys.stdout.flush()
 
 def checker(img, pieces):
     rows = [[' ' for c in xrange(img.width)] for r in xrange(img.height)]
@@ -261,6 +263,7 @@ def find_smallest(img, row, col, id):
             Point(img.height, img.width)) # large sentinels
 
 def is_blocked(img, pieces):
+    return False # XXX this code is crashing XXX
     # count the number of isolated areas, ensure that smallest is still
     # larger than MIN_PIECE_SIZE
     start_id = len(pieces)+1
@@ -293,9 +296,10 @@ def grow_one(img, pieces):
             if not piece.end_valid(img):
                 continue
             # have we blocked something off? (XXX test is slow)
-            with img.flood_fill(piece.end.row, piece.end.col, piece.id):
-                if is_blocked(img, pieces):
-                    continue
+            # XXX TEST IS CRASHING
+            #with img.flood_fill(piece.end.row, piece.end.col, piece.id):
+            #    if is_blocked(img, pieces):
+            #        continue
             # mark spaces as used by this piece
             with piece.mark_tail(img):
                 with img.setpp(piece.end, piece.id):
@@ -351,4 +355,5 @@ def search(filename):
     assert not is_blocked(img, [])
     search_from(img, Point(0, 0), [])
 
-search('sample.png')
+#search('sample.png')
+search('jaguar2.png')

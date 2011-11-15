@@ -8,6 +8,10 @@
 #include "heap.h"
 #include "trie.h"
 
+extern uint32_t big_trie_data[];
+extern uint32_t ans_trie_data[];
+static uint32_t *trie_order[NUM_TRIES] = { ans_trie_data, big_trie_data };
+
 /* state is: (188 bytes)
 current letter-to-shape mapping. (52 bytes)
 for each of 9*2 possible pieces: (90 bytes)
@@ -19,11 +23,73 @@ set of mapped shapes (for efficiency) (46 bytes) (not necessary to hash)
 shape =  trie index, as computed below = max 362 = 16 bits still.
 */
 
-#define MIN_SEQ_LEN 3
-#define MAX_SEQ_LEN 5
+#define MIN_SEQ_LEN 2
+#define MAX_SEQ_LEN 4
+#define MIN_ANSWER_WORDS 4
 
 #define MAX_PIECE_LEN 30 /* larger than largest piece */
 
+#if 1 /* wigs3, (better interlocking) sorted longest to shortest */
+#if NUM_PIECES != 13
+# error "bad config"
+#endif
+char *pieces[NUM_PIECES][NUM_VARIANTS] = {
+    {"lslssslrlrlsssrlrsslsrl*", "rlsrsslrlsssrlrlrsssrsr*"},
+    {"srsssrslrssssrsssssrs*", "slssssslsssslrslsssls*"},
+    {"rsrssrsssssrsrlssrlr*", "lrlssrlslssssslsslsl*"},
+    {"lrsrsssrslslrlrsr*", "lslrlrsrslssslslr*"},
+    {"rlsssssrslrssss*", "sssslrslsssssrl*"},
+    {"sslssssslrlrl*", "rlrlrsssssrss*"},
+    {"lrsssrslrsslr*", "lrsslrslssslr*"},
+    {"rlrssrsssrsl*", "rslssslsslrl*"},
+    {"lrlrsslrlss*", "ssrlrsslrlr*"},
+    {"ssrsrslssr*", "lssrslslss*"},
+    {"sssslssrl*", "rlssrssss*"},
+    {"sssrlrsss*", "ssslrlsss*"},
+    {"rlsslrlss*", "ssrlrssrl*"},
+};
+#elif 1 /* wigs2, sorted longest to shortest */
+#if NUM_PIECES != 13
+# error "bad config"
+#endif
+char *pieces[NUM_PIECES][NUM_VARIANTS] = {
+    {"lslssslrlrlsssrlrsslsrl*", "rlsrsslrlsssrlrlrsssrsr*"},//13
+    {"srsssrslrssssrsssssrs*", "slssssslsssslrslsssls*"},//12
+    {"rsrssrssssrlrsrlsrlr*", "lrlsrlslrlsssslsslsl*"},//11
+    {"lrsrsssrslslrlrsr*", "lslrlrsrslssslslr*"},//10
+    {"rlsssssrslrsssss*", "ssssslrslsssssrl*"},//9
+    {"rlrssrsssrsl*", "rslssslsslrl*"},//8
+    {"lrssrlsslrls*", "srlrssrlsslr*"},//7
+    {"sssrlrssssss*", "sssssslrlsss*"},//6
+    {"rslssslssrl*", "rlssrsssrsl*"},//5
+    {"sslssssslrl*", "rlrsssssrss*"},//4
+    {"ssrsrslssr*", "lssrslslss*"},//3
+    {"lsssrslrss*", "sslrslsssr*"},//2
+    {"lssslrlss*", "ssrlrsssr*"},//1
+};
+#elif 1 /* staggered order */
+#if NUM_PIECES != 13
+# error "bad config"
+#endif
+char *pieces[NUM_PIECES][NUM_VARIANTS] = {
+    {"lslssslrlrlsssrlrsslsrl*", "rlsrsslrlsssrlrlrsssrsr*"},//13
+    {"lssslrlss*", "ssrlrsssr*"},//1
+    {"srsssrslrssssrsssssrs*", "slssssslsssslrslsssls*"},//12
+    {"lsssrslrss*", "sslrslsssr*"},//2
+    {"rsrssrssssrlrsrlsrlr*", "lrlsrlslrlsssslsslsl*"},//11
+    {"ssrsrslssr*", "lssrslslss*"},//3
+    {"lrsrsssrslslrlrsr*", "lslrlrsrslssslslr*"},//10
+    {"sslssssslrl*", "rlrsssssrss*"},//4
+    {"rlsssssrslrsssss*", "ssssslrslsssssrl*"},//9
+    {"rslssslssrl*", "rlssrsssrsl*"},//5
+    {"rlrssrsssrsl*", "rslssslsslrl*"},//8
+    {"sssrlrssssss*", "sssssslrlsss*"},//6
+    {"lrssrlsslrls*", "srlrssrlsslr*"},//7
+};
+#else /* original ANSWER pieces */
+#if NUM_PIECES != 9
+# error "bad config"
+#endif
 char *pieces[NUM_PIECES][NUM_VARIANTS] = {
     {"srlssrslrsssssrssssrlrslrlr*", "lrlrslrlsssslssssslrslssrls*"}, // 9
     {"rlrssrsssrs*", "slssslsslrl*"}, // 1
@@ -35,6 +101,7 @@ char *pieces[NUM_PIECES][NUM_VARIANTS] = {
     {"rssslslsssrsrlr*", "lrlslsssrsrsssl*"}, // 4
     {"sslssssrsrsslss*", "ssrsslslssssrss*"}, // 5
 };
+#endif
 
 int piece_length[NUM_PIECES]; // variants all have same length
 bool can_make[MAX_PIECE_LEN];
@@ -89,11 +156,12 @@ validity_check is:
         is a possible next letter.
     */
 
-bool validate_piece_from(state_t *state, int piece, int var,
+bool validate_piece_from(state_t *state, int piece, int var, int which_trie,
 			 uint32_t trie_pos, int piece_pos, char *buf);
 
 bool validate_piece_from_with(state_t *state, int piece, int var,
-			      struct trie *trie, int piece_pos, int length,
+			      int which_trie, struct trie *trie,
+			      int piece_pos, int length,
 			      shape_t shape, char *buf) {
     uint32_t mask;
     int i, j;
@@ -107,7 +175,7 @@ bool validate_piece_from_with(state_t *state, int piece, int var,
 	if (state->letter_to_shape[i] == shape) {
 	    // recurse for a bit more thorough checking
 	    if (validate_piece_from(state, piece, var,
-				    trie->next[j], piece_pos+length,
+				    which_trie, trie->next[j], piece_pos+length,
 				    buf ? (buf+1) : NULL)) {
 		if (buf) *buf='A'+i; // reuse to discover matching words
 		return true;
@@ -118,8 +186,9 @@ bool validate_piece_from_with(state_t *state, int piece, int var,
 }
 
 bool validate_piece_from(state_t *state, int piece, int var,
-			 uint32_t trie_pos, int piece_pos, char *buf) {
-    struct trie *trie = trie_for_index(trie_pos);
+			 int which_trie, uint32_t trie_pos,
+			 int piece_pos, char *buf) {
+    struct trie *trie = trie_for_index(trie_order[which_trie], trie_pos);
     int remaining = piece_length[piece] - piece_pos;
     int max_letters = (remaining+MIN_SEQ_LEN-1)/MIN_SEQ_LEN;
     int min_letters = (remaining+MAX_SEQ_LEN-1)/MAX_SEQ_LEN;
@@ -147,12 +216,13 @@ bool validate_piece_from(state_t *state, int piece, int var,
 	    // three different possible endings
 	    shape = (3*shape) + 3;
 	    for (j=0; j<3; j++)
-		if (validate_piece_from_with(state, piece, var, trie,
+		if (validate_piece_from_with(state, piece, var,
+					     which_trie, trie,
 					     piece_pos, i, shape+j, buf))
 		    return true; // ok
 	} else {
 	    shape = shape_parse(&pieces[piece][var][piece_pos], i);
-	    if (validate_piece_from_with(state, piece, var, trie,
+	    if (validate_piece_from_with(state, piece, var, which_trie, trie,
 					 piece_pos, i, shape, buf))
 		return true; // ok
 	}
@@ -160,34 +230,48 @@ bool validate_piece_from(state_t *state, int piece, int var,
     return false; // hm, none of the possible shapes work.
 }
 
-bool validate_piece(state_t *state, int piece, int var) {
-    return validate_piece_from(state, piece, var,
+bool validate_piece(state_t *state, int piece, int var, int which_trie) {
+    return validate_piece_from(state, piece, var, which_trie,
 			       state->trie_pos[piece],
 			       state->piece_pos[piece],
 			       NULL);
 }
 
 bool validate(state_t *state) {
-    int i, j;
-    if (!validate_piece(state, state->current_piece, state->current_var))
+    int i, j, k;
+    int count_ans = 0;
+    if (!validate_piece(state, state->current_piece, state->current_var,
+			state->which_trie[state->current_piece]))
 	return false;
+    for (i=0; i<=state->current_piece; i++) {
+	if (state->which_trie[i] == 0) {
+	    count_ans++;
+	}
+    }
     for (i=state->current_piece+1; i<NUM_PIECES; i++) {
 	bool saw_good = false;
 	for (j=0; j<NUM_VARIANTS; j++) {
-	    if (validate_piece(state, i, j)) {
-		saw_good = true;
-		break;
+	    for (k=0; k<NUM_TRIES; k++) {
+		if (validate_piece(state, i, j, k)) {
+		    saw_good = true;
+		    if (k==0) count_ans++;
+		    goto next_piece;
+		}
 	    }
 	}
 	if (!saw_good) return false; // no variants are workable
+    next_piece: ;
     }
+    if (count_ans < MIN_ANSWER_WORDS) /* ensure at least three previous answer words */
+	return false;
+
     return true; // ok, this will fly.
 }
 
 /** Re-use validation code to find a matching word given a dictionary. */
 void dump_state(state_t *state) {
     char buf[256];
-    int i, j;
+    int i, j, k;
 
     assert(sizeof(buf) >= MAX_PIECE_LEN);
 
@@ -197,8 +281,10 @@ void dump_state(state_t *state) {
     for (i=0; i<NUM_PIECES; i++) {
 	printf("%d:", i);
 	for (j=0; j<NUM_VARIANTS; j++) {
-	    if (validate_piece_from(state, i, j, 0, 0, buf)) {
-		printf(" %s", buf);
+	    for (k=0; k<NUM_TRIES; k++) {
+		if (validate_piece_from(state, i, j, k, 0, 0, buf)) {
+		    printf(" %s%s", (k==0?"*":""), buf);
+		}
 	    }
 	}
 	printf((i+1)==NUM_PIECES ? "\n" : ", ");
@@ -221,7 +307,8 @@ do one is:
              add to heap of states
 */
 void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
-		     shape_t shape, int piece, int var, int len) {
+		     shape_t shape, int piece, int var, int which_trie,
+		     int len) {
     uint32_t mask;
     int i, j;
     state_t *ns;
@@ -245,6 +332,7 @@ void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
 	ns->current_piece = piece;
 	ns->current_var = var;
 	// update piece/trie positions.
+	ns->which_trie[piece] = which_trie;
 	ns->trie_pos[piece] = trie->next[j];
 	ns->piece_pos[piece] += len;
 	// check and add new state
@@ -255,12 +343,13 @@ void extend_piece_by(heap_t *heap, state_t *state, struct trie *trie,
     }
 }
 
-void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
+void extend_piece(heap_t *heap, state_t *state,
+		  int piece, int var, int which_trie) {
     uint32_t trie_pos = state->trie_pos[piece];
     struct trie *trie;
     shape_t shape;
-    int pi, i;
-    trie = trie_for_index(trie_pos);
+    int pi, i, j;
+    trie = trie_for_index(trie_order[which_trie], trie_pos);
     /* Is this an end state in the piece? */
     pi = state->piece_pos[piece];
     if (pieces[piece][var][pi] == '\0' && trie->letter_mask.min_len == 0) {
@@ -270,7 +359,8 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
 	} else {
 	    /* do variants of next piece */
 	    for (i=0; i<NUM_VARIANTS; i++)
-		extend_piece(heap, state, piece+1, i);
+		for (j=0; j<NUM_TRIES; j++)
+		    extend_piece(heap, state, piece+1, i, j);
 	}
 	return;
     }
@@ -284,12 +374,16 @@ void extend_piece(heap_t *heap, state_t *state, int piece, int var) {
 	    shape = shape_parse(&pieces[piece][var][pi], i-1);
 	    // three different possible endings
 	    shape = (3*shape) + 3;
-	    extend_piece_by(heap, state, trie, shape+0, piece,var, i/*length*/);
-	    extend_piece_by(heap, state, trie, shape+1, piece,var, i/*length*/);
-	    extend_piece_by(heap, state, trie, shape+2, piece,var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+0, piece, var, which_trie,
+			    i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+1, piece, var, which_trie,
+			    i/*length*/);
+	    extend_piece_by(heap, state, trie, shape+2, piece, var, which_trie,
+			    i/*length*/);
 	} else {
 	    shape = shape_parse(&pieces[piece][var][pi], i);
-	    extend_piece_by(heap, state, trie, shape, piece,var, i/*length*/);
+	    extend_piece_by(heap, state, trie, shape, piece, var, which_trie,
+			    i/*length*/);
 	}
     }
 }
@@ -301,7 +395,7 @@ void extend_state(heap_t *heap, state_t *state) {
     int piece, var;
     piece = state->current_piece;
     var = state->current_var;
-    extend_piece(heap, state, piece, var);
+    extend_piece(heap, state, piece, var, state->which_trie[piece]);
 }
 
 /*
@@ -339,10 +433,12 @@ but it's ~26 times slower to look up the piece corresponding to a given letter
 
 void find_solution(void) {
     int best_score = 0;
-    int i, score;
+    int i, j, score;
     heap_t *heap = heap_new();
     for (i=0; i<NUM_VARIANTS; i++) {
-	heap_push(heap, state_new(0, i));
+	for (j=0; j<NUM_TRIES; j++) {
+	    heap_push(heap, state_new(0, i, j));
+	}
     }
     while (!heap_is_empty(heap)) {
 	state_t *state = heap_pop(heap);

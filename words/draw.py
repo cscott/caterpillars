@@ -3,18 +3,20 @@ import itertools
 
 WORDFILE='enable1.txt'
 
-if False:
-    # first version
-    alphabet={
-        'A': 'srlss', 'B': 'rslrs', 'C': 'rlrss', 'D': 'ssssr', 'E': 'slr',
-        'F': 'slss', 'G': 'lrlsl', 'H': 'rsss', 'I': 'rsl', 'J': 'slsrl',
-        'K': 'slsr', 'L': 'lssrl', 'M': 'rlr', 'N': 'lrs', 'O': 'ssss',
-        'P': 'srs', 'Q': 'lss', 'R': 'lslss', 'S': 'srls', 'T': 'ssr',
-        'U': 'ssl', 'V': 'rsrss', 'W': 'lrlss', 'X': 'lsls',
-        'Y': 'sss', 'Z': 'lrsrs'
+if True:
+    # third version, critic meta
+    WORDFILE='big-dict'
+    alphabet = { # Q is free! W can change end.
+        'A': 'sslrl', 'B': 'slsss', 'C': 'ssss', 'D': 'slslr', 'E': 'ss',
+        'F': 'slr', 'G': 'rlss', 'H': 'rlrss', 'I': 'rlsss', 'J': 'slsls',
+        'K': 'sss', 'L': 'ssrl', 'M': 'sslss', 'N': 'rsls', 'O': 'lsrl',
+        'P': 'srsl', 'Q': 'slrsrl', 'R': 'sl', 'S': 'lsl', 'T': 'lss',
+        'U': 'lr', 'V': 'srs', 'W': 'lrll', 'X': 'ssrlr',
+        'Y': 'sssls', 'Z': 'lrl'
         }
     words = [
-        'ABDOMEN','CHI','REWAX','MUST','MUJIK','QUIPS','LUTZ','GYVE','TUFTY',
+        'JAIHO', 'MERCURY', 'FORGETS', 'DUPED', 'KERNEL', 'PEREZ', 'FLEW',
+        'EXEC', 'PERL', 'YEA', 'RENT', 'REVUE', 'BUT'
         ]
 elif True:
     # second version, only words from Alice
@@ -29,6 +31,20 @@ elif True:
         }
     words = [
         'AWHILE', 'EGG', 'SANDS', 'CUP', 'EVER', 'JUDY', 'BOOK', 'TRUE', 'FROM'
+        ]
+elif True:
+    WORDFILE='enable1.txt'
+    # first version
+    alphabet={
+        'A': 'srlss', 'B': 'rslrs', 'C': 'rlrss', 'D': 'ssssr', 'E': 'slr',
+        'F': 'slss', 'G': 'lrlsl', 'H': 'rsss', 'I': 'rsl', 'J': 'slsrl',
+        'K': 'slsr', 'L': 'lssrl', 'M': 'rlr', 'N': 'lrs', 'O': 'ssss',
+        'P': 'srs', 'Q': 'lss', 'R': 'lslss', 'S': 'srls', 'T': 'ssr',
+        'U': 'ssl', 'V': 'rsrss', 'W': 'lrlss', 'X': 'lsls',
+        'Y': 'sss', 'Z': 'lrsrs'
+        }
+    words = [
+        'ABDOMEN','CHI','REWAX','MUST','MUJIK','QUIPS','LUTZ','GYVE','TUFTY',
         ]
 
 words += [

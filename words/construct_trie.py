@@ -1,14 +1,21 @@
 #!/usr/bin/python
 from __future__ import with_statement
 import os
+import sys
 
 #WORDFILE='enable1.txt' # scrabble dictionary
 #WORDFILE='looking-words' # all words in Looking Glass, being generous
-WORDFILE='looking-words-2' # "Looking glass numbered" words
+#WORDFILE='looking-words-2' # "Looking glass numbered" words
+#WORDFILE='/usr/share/dict/american-english' # big dict
+#WORDFILE='big-dict' # bigger dict
+#WORDFILE='answer-words'
+WORDFILE=sys.argv[2]
 NUMBER='NUMBER'
 GOAL='GOAL'
 MAXLEN='MAXLEN'
 MINLEN='MINLEN'
+
+BAD_WORDS=set(['imbar','gan','peh','meane','verra','caz','bez','idyls','mut'])
 
 tries = {}
 with open(WORDFILE) as f:
@@ -18,6 +25,7 @@ with open(WORDFILE) as f:
         word = word.strip().lower()
         if not word: continue
         if "'" in word: continue
+        if word in BAD_WORDS: continue
         word_len = len(word)
         start = tries
         start[MAXLEN] = max(word_len, start.get(MAXLEN, 0))
@@ -71,6 +79,6 @@ number(tries, lookup, first_goal)
 print "#include <stdint.h>"
 print "#define MAX_WORD_LEN", tries[MAXLEN]
 print "#define MIN_WORD_LEN", tries[MINLEN]
-print "uint32_t trie_data[] = {"
+print "uint32_t "+sys.argv[1]+"[] = {"
 for i in lookup: print str(i)+"UL,"
 print "};"

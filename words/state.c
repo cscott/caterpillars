@@ -7,15 +7,17 @@
 #include "shape.h"
 #include "state.h"
 
-state_t *state_new(int current_piece, int current_var) {
+state_t *state_new(int current_piece, int current_var, int current_trie) {
     int i;
     state_t *s = malloc(sizeof(*s));
     s->current_piece = current_piece;
     s->current_var = current_var;
     for (i=0; i<NUM_PIECES; i++) {
+	s->which_trie[i] = 77; // start with first trie
 	s->trie_pos[i] = 0; // at start of word
 	s->piece_pos[i] = 0; // at start of piece
     }
+    s->which_trie[current_piece] = current_trie;
     for (i=0; i<26; i++)
 	s->letter_to_shape[i] = NO_SHAPE;
     for (i=0; i < (sizeof(s->shape_mapped)/sizeof(s->shape_mapped[0])); i++)
@@ -45,6 +47,7 @@ bool state_is_letter_mapped(state_t *state, char letter) {
 
 /** For now, score state based on number of letters mapped, so that we get
  *  the solution with the fewest different shapes/letters first. */
+// smallest score is best!
 int state_score(state_t *state) {
     int i, j, score = 0;
     // reward small alphabets
@@ -55,6 +58,10 @@ int state_score(state_t *state) {
     // reward having gotten closer to completing the whole thing
     for (i=0; i<NUM_PIECES; i++)
 	score -= state->piece_pos[i];
+    // reward words from answer list (really, "first word list")
+    for (i=0; i<NUM_PIECES; i++)
+	if (state->which_trie[i] == 0)
+	    score -= 200;
     return score;
 }
 

@@ -4,18 +4,20 @@
 #include <stdint.h>
 #include "shape.h"
 
-#define NUM_PIECES 9
+#define NUM_PIECES 13
 #define NUM_VARIANTS 2
+#define NUM_TRIES 2
 
 typedef struct state {
     uint16_t current_piece, current_var;
     uint32_t trie_pos[NUM_PIECES];
+    uint8_t which_trie[NUM_PIECES];
     uint8_t piece_pos[NUM_PIECES];
     shape_t letter_to_shape[26];
     uint16_t shape_mapped[23];
 } state_t;
 
-state_t *state_new(int current_piece, int current_var);
+state_t *state_new(int current_piece, int current_var, int current_trie);
 void state_free(state_t *state);
 
 uint32_t state_hash(state_t *state);

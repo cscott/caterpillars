@@ -7,7 +7,7 @@ def read(filename):
     palette = {}
     with open(filename, 'rb') as f:
         width, height, pixels, metadata = png.Reader(file=f).asRGBA8()
-        assert width == 16 and height==16
+        assert (width == 16 or width == 32) and height==16
         def pixel(r,g,b,a):
             if r==255 and g==255 and b==255: return -1 # void
             if r==0 and g==0 and b==0: return -1 # void
