@@ -2,6 +2,7 @@
 import itertools
 
 WORDFILE='enable1.txt'
+DRAW_MOUTH=False
 
 if True:
     # third version, critic meta
@@ -175,19 +176,23 @@ def centerpoint(pat, direction):
 
 def path_mouth(direction):
     d = direction
+    if not DRAW_MOUTH: return "l" + Direction.rotates(d, -6, 0) # NO MOUTH
     p = "l" + Direction.rotates(d, -3, 5)
     p += "l" + Direction.rotates(d, -3, -5)
     return p
 
 def path_halfmouth(pat, direction):
     d = direction
-    p = "l" + Direction.rotates(d, -3, 5)
-    p += "l" + Direction.rotates(d, +3, -5) # retrace
+    p = ''
+    if DRAW_MOUTH: # NO MOUTH
+        p += "l" + Direction.rotates(d, -3, 5)
+        p += "l" + Direction.rotates(d, +3, -5) # retrace
     # back at the mouth opening
     p += path(pat, direction)
     # at the other side of the mouth
-    p += "l" + Direction.rotates(d, 3, 5)
-    p += "l" + Direction.rotates(d, -3, -5) # retrace
+    if DRAW_MOUTH: # NO MOUTH
+        p += "l" + Direction.rotates(d, 3, 5)
+        p += "l" + Direction.rotates(d, -3, -5) # retrace
     return p
 
 def path_straight(pat, direction):
@@ -271,16 +276,22 @@ def draw_word(word):
     pat = pat_from_word(word, sep=True)
     return draw_word_pat(word, pat)
 def draw_word_pat(word, pat, direction = Direction.EAST):
+    d = direction
     p = ''
-    # draw the egg
-    pp = path_egg(direction)
-    p += "<path d=\"%s\" fill=\"#fefde3\" stroke=\"black\" stroke-width=\".5\" />"\
-        % pp
-    # draw path
-    pp  = "M" + Direction.rotates(direction, 0, 0)
-    pp += "l" + Direction.rotates(direction, 3, -5)
+    # draw the first half of the tail
+    pp = "M" + Direction.rotates(d, 0, 5)
+    pp += "l" + Direction.rotates(d, 3, 0)
+    pp += "a 2,2 0 0,0" + Direction.rotates(d, 2, -2)
+    pp += "l" + Direction.rotates(d, 0, -6)
+    pp += "a 2,2 0 0,0" + Direction.rotates(d, -2, -2)
+    # now we're at start of mouth
     pp += path(pat, direction)
-    pp += "l" + Direction.rotates(direction, 3, 5)
+    # now we're at close of mouth
+    pp += "a 2,2 0 0,0" + Direction.rotates(d, -2, 2)
+    pp += "l" + Direction.rotates(d, 0, 6)
+    pp += "a 2,2 0 0,0" + Direction.rotates(d, 2, 2)
+    pp += "Z"
+
     p += "<path d=\"%s\" fill=\"#7f8\" stroke=\"black\" stroke-width=\".5\" />"\
         % pp
 
@@ -289,14 +300,18 @@ def draw_word_pat(word, pat, direction = Direction.EAST):
         j = pat.find('|', i)
         if j < 0: break
         # add eyes at the head
+        headdir = enddir('s'+pat[:j], direction)
         x,y = centerpoint('s'+pat[:(j-1)], direction)
-        x1,y1 = Direction.rotate(enddir('s'+pat[:j], direction), -3, 0)
-        p += "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" fill=\"black\" />" % \
+        x1,y1 = Direction.rotate(headdir, -3, 0)
+        p += "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
              (x+x1,y+y1,1)
-        # add letters at the midpoint
-        k = (i+j-1)//2
-        x,y = centerpoint('s'+pat[:k], direction)
-        p += "<text x=\"%d\" y=\"%d\" style=\"text-anchor: middle\" font-size=\"8\">%s</text>" % (x, y+3, c)
+        x2,y2 = Direction.rotate(headdir, -2.7, -0.3)
+        p += "<circle cx=\"%.1f\" cy=\"%.1f\" r=\"%.1f\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
+             (x+x2,y+y2,0.5)
+        # add mouth
+        x3,y3 = Direction.rotate(headdir, 3, -5)
+        p += "<path d=\"M %d,%d A 3,5 %d 0,1 %d,%d\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
+             (x+x3,y+y3, 90*headdir, x,y)
         i=j+1
     return p
 
