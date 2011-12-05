@@ -1,8 +1,11 @@
 #!/usr/bin/python
+from __future__ import division
 import itertools
 
 WORDFILE='enable1.txt'
 DRAW_MOUTH=False
+DRAW_WALLS_ONCE=True
+PONOKO=True
 
 if True:
     # third version, critic meta
@@ -174,74 +177,96 @@ def centerpoint(pat, direction):
     else:
         assert False
 
-def path_mouth(direction):
+WALLS_SEEN = set()
+def wall(d1, d2, (cx, cy)):
+    # walls are always drawn counter-clockwise
+    d = Direction.add(d1, d2)
+    amt = Direction.rotates(d, -6, 0)
+    # normalize all walls to NORTH/EAST
+    if d == Direction.WEST:
+        cx,cy,d = cx-1, cy, Direction.EAST
+    if d == Direction.SOUTH:
+        cx,cy,d = cx, cy+1, Direction.NORTH
+    # has this wall already been drawn?
+    if (cx,cy,d) in WALLS_SEEN and DRAW_WALLS_ONCE:
+        # repeat wall!
+        return "m" + amt
+    WALLS_SEEN.add((cx,cy,d))
+    return "l" + amt
+
+def path_mouth(direction, pt):
     d = direction
-    if not DRAW_MOUTH: return "l" + Direction.rotates(d, -6, 0) # NO MOUTH
+    if not DRAW_MOUTH:
+        x1,y1 = Direction.rotate(d, 0, 1)
+        x2,y2 = pt
+        return wall(d, Direction.NORTH, (x1+x2, y1+y2)) # NO MOUTH
     p = "l" + Direction.rotates(d, -3, 5)
     p += "l" + Direction.rotates(d, -3, -5)
     return p
 
-def path_halfmouth(pat, direction):
+def path_halfmouth(pat, direction, pt, nextpt):
     d = direction
     p = ''
     if DRAW_MOUTH: # NO MOUTH
         p += "l" + Direction.rotates(d, -3, 5)
         p += "l" + Direction.rotates(d, +3, -5) # retrace
     # back at the mouth opening
-    p += path(pat, direction)
+    p += path(pat, direction, nextpt)
     # at the other side of the mouth
     if DRAW_MOUTH: # NO MOUTH
         p += "l" + Direction.rotates(d, 3, 5)
         p += "l" + Direction.rotates(d, -3, -5) # retrace
     return p
 
-def path_straight(pat, direction):
+def path_straight(pat, direction, pt, nextpt):
     d = direction
     p  = "a 2,2 0 0,0" + Direction.rotates(d, 2, -2)
-    p += "l" + Direction.rotates(d, 0, -6)
+    p += wall(d, Direction.EAST, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2, -2)
-    p += path(pat, direction)
+    p += path(pat, direction, nextpt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2,  2)
-    p += "l" + Direction.rotates(d, 0, 6)
+    p += wall(d, Direction.WEST, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d, 2,  2)
     return p
 
-def path_left(pat, direction):
+def path_left(pat, direction, pt, nextpt):
     d = direction
     p  = "a 2,2 0 0,0" + Direction.rotates(d, 2, -2)
-    p += "l" + Direction.rotates(d, 0, -6)
+    p += wall(d, Direction.EAST, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2, -2)
-    p += "l" + Direction.rotates(d, -6, 0)
+    p += wall(d, Direction.NORTH, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2,  2)
 
-    p += path(pat, Direction.add(d, 3))
+    p += path(pat, Direction.add(d, 3), nextpt)
 
     p += "a 2,2 0 0,0" + Direction.rotates(d, 2,  2)
     return p
 
-def path_right(pat, direction):
+def path_right(pat, direction, pt, nextpt):
     d = direction
     p  = "a 2,2 0 0,0" + Direction.rotates(d, 2, -2)
-    p += path(pat, Direction.add(d, 1))
+    p += path(pat, Direction.add(d, 1), nextpt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2, -2)
-    p += "l" + Direction.rotates(d, -6, 0)
+    p += wall(d, Direction.NORTH, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d,-2,  2)
-    p += "l" + Direction.rotates(d, 0, 6)
+    p += wall(d, Direction.WEST, pt)
     p += "a 2,2 0 0,0" + Direction.rotates(d, 2,  2)
     return p
 
-def path(pat, direction):
+def path(pat, direction, (x,y)):
     if pat=='':
-        return path_mouth(direction)
+        return path_mouth(direction, (x, y))
     head, tail = pat[0], pat[1:]
+    nx,ny = centerpoint(head, direction) if head != '|' else (0,0)
+    nx,ny = (nx//10)+x, (ny//10)+y
     if head=='s':
-        return path_straight(tail, direction)
+        return path_straight(tail, direction, (x,y), (nx, ny))
     elif head=='l':
-        return path_left(tail, direction)
+        return path_left(tail, direction, (x,y), (nx, ny))
     elif head=='r':
-        return path_right(tail, direction)
+        return path_right(tail, direction, (x,y), (nx, ny))
     elif head=='|':
-        return path_halfmouth(tail, direction)
+        return path_halfmouth(tail, direction, (x,y), (nx, ny))
     else:
         print "ARGH", head, tail
         assert False
@@ -275,25 +300,27 @@ def path_egg(direction):
 def draw_word(word):
     pat = pat_from_word(word, sep=True)
     return draw_word_pat(word, pat)
-def draw_word_pat(word, pat, direction = Direction.EAST):
+def draw_word_pat(word, pat, direction=Direction.EAST, x=0, y=0):
     d = direction
     p = ''
     # draw the first half of the tail
-    pp = "M" + Direction.rotates(d, 0, 5)
-    pp += "l" + Direction.rotates(d, 3, 0)
+    pp = "M" + Direction.rotates(d, -3, 5)
+    pp += wall(d, Direction.SOUTH, (x, y))
     pp += "a 2,2 0 0,0" + Direction.rotates(d, 2, -2)
-    pp += "l" + Direction.rotates(d, 0, -6)
+    pp += wall(d, Direction.EAST, (x, y))
     pp += "a 2,2 0 0,0" + Direction.rotates(d, -2, -2)
     # now we're at start of mouth
-    pp += path(pat, direction)
+    nx,ny = Direction.rotate(d, 0, -1)
+    pp += path(pat, direction, (x+nx, y+ny))
     # now we're at close of mouth
     pp += "a 2,2 0 0,0" + Direction.rotates(d, -2, 2)
-    pp += "l" + Direction.rotates(d, 0, 6)
+    pp += wall(d, Direction.WEST, (x, y))
     pp += "a 2,2 0 0,0" + Direction.rotates(d, 2, 2)
-    pp += "Z"
+    #pp += "Z"
 
-    p += "<path d=\"%s\" fill=\"#7f8\" stroke=\"black\" stroke-width=\".5\" />"\
-        % pp
+    p1 = "<path d=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\".5\" />"\
+        % (pp, "none" if DRAW_WALLS_ONCE else "#7f8",
+           "#00f" if PONOKO else "black")
 
     i = 0
     for c in word:
@@ -303,16 +330,18 @@ def draw_word_pat(word, pat, direction = Direction.EAST):
         headdir = enddir('s'+pat[:j], direction)
         x,y = centerpoint('s'+pat[:(j-1)], direction)
         x1,y1 = Direction.rotate(headdir, -3, 0)
-        p += "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
-             (x+x1,y+y1,1)
+        p += "<circle cx=\"%d\" cy=\"%d\" r=\"%d\" stroke=\"%s\" stroke-width=\".5\" fill=\"none\" />" % \
+             (x+x1,y+y1,1, "#0f0" if PONOKO else "black")
         x2,y2 = Direction.rotate(headdir, -2.7, -0.3)
-        p += "<circle cx=\"%.1f\" cy=\"%.1f\" r=\"%.1f\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
-             (x+x2,y+y2,0.5)
+        p += "<circle cx=\"%.1f\" cy=\"%.1f\" r=\"%.1f\" stroke=\"%s\" stroke-width=\".5\" fill=\"none\" />" % \
+             (x+x2,y+y2,0.5, "#0f0" if PONOKO else "black")
         # add mouth
         x3,y3 = Direction.rotate(headdir, 3, -5)
-        p += "<path d=\"M %d,%d A 3,5 %d 0,1 %d,%d\" stroke=\"black\" stroke-width=\".5\" fill=\"none\" />" % \
-             (x+x3,y+y3, 90*headdir, x,y)
+        p += "<path d=\"M %d,%d A 3,5 %d 0,1 %d,%d\" stroke=\"%s\" stroke-width=\".5\" fill=\"none\" />" % \
+             (x+x3,y+y3, 90*headdir, x,y, "#0f0" if PONOKO else "black")
         i=j+1
+
+    p += p1 # put the cutting lines after the engraving lines
     return p
 
 
