@@ -127,6 +127,12 @@ class Direction:
     @staticmethod
     def rotates(d, x, y):
         return " %d,%d " % Direction.rotate(d, x, y)
+    @staticmethod
+    def fromchar(c):
+        key = { 'n': Direction.NORTH, 'e': Direction.EAST,
+                's': Direction.SOUTH, 'w': Direction.WEST }
+        assert c in key
+        return key[c]
 
 def enddir(pat, direction):
     if pat=='': return direction
@@ -264,8 +270,7 @@ def path_egg(direction):
 def draw_word(word):
     pat = pat_from_word(word, sep=True)
     return draw_word_pat(word, pat)
-def draw_word_pat(word, pat):
-    direction = Direction.EAST
+def draw_word_pat(word, pat, direction = Direction.EAST):
     p = ''
     # draw the egg
     pp = path_egg(direction)
