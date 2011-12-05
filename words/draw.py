@@ -232,7 +232,8 @@ def path(pat, direction):
     elif head=='|':
         return path_halfmouth(tail, direction)
     else:
-        assert false
+        print "ARGH", head, tail
+        assert False
 
 def path_egg(direction):
     d = direction
@@ -262,6 +263,8 @@ def path_egg(direction):
 
 def draw_word(word):
     pat = pat_from_word(word, sep=True)
+    return draw_word_pat(word, pat)
+def draw_word_pat(word, pat):
     direction = Direction.EAST
     p = ''
     # draw the egg
@@ -325,5 +328,6 @@ def draw_words(words):
 
     print SVG_TMPL % p
 
-#check_words(words)
-draw_words(words)
+if __name__ == '__main__':
+  #check_words(words)
+  draw_words(words)
